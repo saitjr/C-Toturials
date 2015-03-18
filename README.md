@@ -30,3 +30,14 @@ C语言是我接触的第一门程序语言，或多或少还是有那么一点�
 ##关于环境
 
 所有Demo与课程讲解，均使用Xcode。
+
+##本书Demo
+
+[https://github.com/saitjr/C-Toturials-Demo.git](https://github.com/saitjr/C-Toturials-Demo.git)
+
+##联系方式
+
+如果在学习过程中遇到无法解决的难点，请联系我`tangjr.work@gmail.com`
+
+##纠错
+如果发现错误或歧义，请直接在github上fork并修改，仓库地址：[https://github.com/saitjr/C-Toturials.git](https://github.com/saitjr/C-Toturials.git)
