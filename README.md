@@ -31,7 +31,7 @@ C语言是我接触的第一门程序语言，或多或少还是有那么一点�
 
 所有Demo与课程讲解，均使用Xcode。
 
-##本书Demo
+##教程Demo
 
 [https://github.com/saitjr/C-Toturials-Demo.git](https://github.com/saitjr/C-Toturials-Demo.git)
 
