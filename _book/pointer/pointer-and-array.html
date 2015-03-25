@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Pointer | 写在开头</title>
+        <title>Pointer-And-Array | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../pointer/define-pointer.html" />
+    <link rel="next" href="../struct/README.html" />
     
     
-    <link rel="prev" href="../function/README.html" />
+    <link rel="prev" href="../pointer/pointer-and-function.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6" data-basepath=".." data-revision="1427303514405">
+    <div class="book"  data-level="6.3" data-basepath=".." data-revision="1427303514405">
     
 
 <div class="book-summary">
@@ -339,7 +339,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6" data-path="pointer/README.html">
+        <li class="chapter " data-level="6" data-path="pointer/README.html">
             
                 
                     <a href="../pointer/README.html">
@@ -388,7 +388,7 @@
         </li>
     
         
-        <li class="chapter " data-level="6.3" data-path="pointer/pointer-and-array.html">
+        <li class="chapter active" data-level="6.3" data-path="pointer/pointer-and-array.html">
             
                 
                     <a href="../pointer/pointer-and-array.html">
@@ -545,42 +545,13 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_17">
                     
-                        <h1 id="">指针</h1>
-<p>几乎任何C语言资料都会提到一句话：</p>
-<blockquote>
-<p>指针是C语言的精华。出去说会C语言，但不会指针，还不如直接说不会C语言。</p>
-</blockquote>
-<p>指针的重要性不言而喻。然而，指针重要，但是又很难，不容易学好，那么本章，我将带领大家，学习C语言指针。</p>
-<p>关于指针，我一直认为：其实每一门语言都有指针，在学其他语言的时候没听说过，不过是因为其他语言弱化了这个概念而已，但实际上指针是存在的。</p>
-<h2 id="">概念</h2>
-<p>什么是指针？
-<br/>为什么要用指针？
-<br/>怎么用指针？</p>
-<p>学习每一个知识点，都躲不过这三个问题，我们来一一解答。</p>
-<h3 id="">什么是指针？</h3>
-<p>首先，需要明确两个概念：</p>
-<ul>
-<li>指针是地址，是一个<font color=red>常量</font>。</li>
-<li>平时所提到的“指针”，其实指的是存储地址的变量，准确的来说，应该叫做<font color=red>指针变量</font>。</li>
-</ul>
-<p>指针变量在定义方面，和普通变量没什么区别，但是它存的是变量的<font color=red>地址</font>。</p>
-<h3 id="">为什么要用指针？</h3>
-<p>在计算机当中，任何一步操作都是在对内存进行访问。为了能正确的访问这些存储单元，就需要给它们编号，这个编号，就是地址。</p>
-<ul>
-<li>使用指针进行访问，即直接访问地址，这样效率更高。</li>
-<li>C语言当中，只有传值，没有引用。想要对值进行传递，就必须要通过指针。（在函数部分体会最深）</li>
-<li>C语言的函数，其实是一个指针。没有指针，就没有C语言函数。</li>
-</ul>
-<h3 id="">怎么用指针？</h3>
-<p>说道怎么用，那这肯定是这一章都说不完的话题了。这一章，大致从几个方面给出了指针的用法：</p>
-<ul>
-<li>指针的定义与初始化</li>
-<li>指针与基本类型变量</li>
-<li>指针与函数</li>
-<li>指针与数组</li>
-</ul>
+                        <h1 id="">指针与数组</h1>
+<p>数组是由若干个元素组成的，每一个元素都有独立的存储空间，并且地址连续。而数组名，就是这一块连续内存的<font color=red>首地址</font>。既然如此，我们也可以使用指针来指向这一块地址。</p>
+<pre><code>int a[10] = {1, 2, 3, 4, 5, 6};
+int *p = a;  // a不用写成&amp;a，因为a作为数组名，本身就是地址
+</code></pre><h2 id="">指针访问数组</h2>
 
                     
                     </section>
@@ -591,10 +562,10 @@
         </div>
 
         
-        <a href="../function/README.html" class="navigation navigation-prev " aria-label="Previous page: Function"><i class="fa fa-angle-left"></i></a>
+        <a href="../pointer/pointer-and-function.html" class="navigation navigation-prev " aria-label="Previous page: Pointer-And-Function"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../pointer/define-pointer.html" class="navigation navigation-next " aria-label="Next page: Define-Pointer"><i class="fa fa-angle-right"></i></a>
+        <a href="../struct/README.html" class="navigation navigation-next " aria-label="Next page: Struct"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

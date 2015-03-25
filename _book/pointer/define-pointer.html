@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Pointer | 写在开头</title>
+        <title>Define-Pointer | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../pointer/define-pointer.html" />
+    <link rel="next" href="../pointer/pointer-and-function.html" />
     
     
-    <link rel="prev" href="../function/README.html" />
+    <link rel="prev" href="../pointer/README.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6" data-basepath=".." data-revision="1427303514405">
+    <div class="book"  data-level="6.1" data-basepath=".." data-revision="1427303514405">
     
 
 <div class="book-summary">
@@ -339,7 +339,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6" data-path="pointer/README.html">
+        <li class="chapter " data-level="6" data-path="pointer/README.html">
             
                 
                     <a href="../pointer/README.html">
@@ -356,7 +356,7 @@
                 
     
         
-        <li class="chapter " data-level="6.1" data-path="pointer/define-pointer.html">
+        <li class="chapter active" data-level="6.1" data-path="pointer/define-pointer.html">
             
                 
                     <a href="../pointer/define-pointer.html">
@@ -545,43 +545,75 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_15">
+                    <section class="normal" id="section-gitbook_16">
                     
-                        <h1 id="">指针</h1>
-<p>几乎任何C语言资料都会提到一句话：</p>
-<blockquote>
-<p>指针是C语言的精华。出去说会C语言，但不会指针，还不如直接说不会C语言。</p>
-</blockquote>
-<p>指针的重要性不言而喻。然而，指针重要，但是又很难，不容易学好，那么本章，我将带领大家，学习C语言指针。</p>
-<p>关于指针，我一直认为：其实每一门语言都有指针，在学其他语言的时候没听说过，不过是因为其他语言弱化了这个概念而已，但实际上指针是存在的。</p>
-<h2 id="">概念</h2>
-<p>什么是指针？
-<br/>为什么要用指针？
-<br/>怎么用指针？</p>
-<p>学习每一个知识点，都躲不过这三个问题，我们来一一解答。</p>
-<h3 id="">什么是指针？</h3>
-<p>首先，需要明确两个概念：</p>
-<ul>
-<li>指针是地址，是一个<font color=red>常量</font>。</li>
-<li>平时所提到的“指针”，其实指的是存储地址的变量，准确的来说，应该叫做<font color=red>指针变量</font>。</li>
-</ul>
-<p>指针变量在定义方面，和普通变量没什么区别，但是它存的是变量的<font color=red>地址</font>。</p>
-<h3 id="">为什么要用指针？</h3>
-<p>在计算机当中，任何一步操作都是在对内存进行访问。为了能正确的访问这些存储单元，就需要给它们编号，这个编号，就是地址。</p>
-<ul>
-<li>使用指针进行访问，即直接访问地址，这样效率更高。</li>
-<li>C语言当中，只有传值，没有引用。想要对值进行传递，就必须要通过指针。（在函数部分体会最深）</li>
-<li>C语言的函数，其实是一个指针。没有指针，就没有C语言函数。</li>
-</ul>
-<h3 id="">怎么用指针？</h3>
-<p>说道怎么用，那这肯定是这一章都说不完的话题了。这一章，大致从几个方面给出了指针的用法：</p>
-<ul>
-<li>指针的定义与初始化</li>
-<li>指针与基本类型变量</li>
-<li>指针与函数</li>
-<li>指针与数组</li>
-</ul>
+                        <h1 id="">指针的定义与使用</h1>
+<h2 id="">指针的定义</h2>
+<p>在程序当中，我们使用<code>*</code>表示指向。指针变量的定义为：</p>
+<p>指向单元的数据类型 *指针变量名;</p>
+<pre><code>int *intPointer;      // 指向int变量的指针intPointer
+float *floatPointer;  // 指向float变量的指针floatPointer
+char *charPointer;    // 指向char变量的指针charPointer
+</code></pre><p>虽然，指针可以指向不同类型的变量，如以上的<code>intPointer</code>、<code>floatPointer</code>、<code>charPointer</code>，但他们所占的内存空间与指向变量的类型所占空间无关。意思是，<code>intPointer</code>、<code>floatPointer</code>、<code>charPointer</code>所占的内存都是8个字节（64位下）。</p>
+<p><strong>既然无论什么类型的指针都是占8个字节，那为什么还要分类型呢？</strong></p>
+<p>简单的讲，是为了告诉编译器，应该读几个字节。可以看看这个例子：</p>
+<pre><code>int a = 1;
+char b = 2;
 
+int *p = &amp;b;
+
+printf(&quot;%d&quot;, *p);
+</code></pre><h2 id="">指针的初始化与赋值</h2>
+<p><font color=red>没有具体指向的指针不能使用</font>。刚定义的指针，还没有初值，这时系统会随便指向一块地址，如果这块地址正被其他程序所占用，那么操作这块地址，可能会造成系统混乱。所以，定义指针以后，最好有一个初始化的好习惯，避免<font color=red>野指针异常</font>。</p>
+<pre><code>int *p = NULL; // 定义指针变量以后，初始化指向为NULL(未指向任何一块地址)
+</code></pre><h3 id="">&amp;取地址符</h3>
+<p>如果需要指向某一个变量，那首先需要得到这个变量的地址。</p>
+<pre><code>int a = 10;
+int *p = &amp;a; // 注意*p的类型要与a的类型一致
+</code></pre><h3 id="">指针的赋值</h3>
+<ul>
+<li>定义指针变量，并给初始值，这一步叫做<font color=red>初始化</font>。</li>
+<li>定义以后，在其他地方给值，这一步叫做<font color=red>赋值</font>。</li>
+</ul>
+<pre><code>int a = 10;
+int *p = NULL; // 定义指针变量，并初始化为NULL
+p = &amp;a;        // 将a的地址赋值给，注意：这里的p没有*
+</code></pre><h2 id="">指针的使用</h2>
+<p>这里有一个比较容易混淆的知识点<code>*</code>。</p>
+<ul>
+<li>指针变量在定义时，需要使用<code>int *p;</code>；</li>
+<li>但当定义以后，使用<code>p</code>来进行指针变量的访问；</li>
+<li>定义以后，使用<code>*p</code>中的<code>*</code>则表示指针运算符，将对这块地址中存储的值，进行间接访问。</li>
+</ul>
+<p>举个例子：</p>
+<pre><code>int a = 10;            // 定义变量a，并初始为10
+int *p = NULL;         // 定义指针变量p，并初始为NULL
+p = &amp;a;                // 将a的地址赋值给p
+printf(&quot;a = %d&quot;, *p);  // *p将间接访问p指向地址的值，即10
+</code></pre><p>以下例子是<font color=red>错误</font>的：</p>
+<pre><code>int *p = NULL;
+p = 10;         // 未加*的指针变量p表示的是地址，不能给地址赋值为10
+</code></pre><pre><code>int *p = NULL;
+*p = 10;        // p未指向任何一块地址，不能进行赋值
+</code></pre><pre><code>int a = 10;
+int *p = a;     // 在初始的时候，*p表示地址，不能直接将变量a的值给它，应修改为*p = &amp;a;
+</code></pre><h2 id="">通过指针，修改变量的值</h2>
+<p>先来看看以前的实现方式：</p>
+<pre><code>int a = 10;
+a = 11;
+</code></pre><p>通知指针，进行间接访问的方式：</p>
+<pre><code>int a = 10;
+int *p = &amp;a;
+
+*p = 11;
+</code></pre><h2 id="">指针的运算</h2>
+<p>下面的例子为实现一个加法运算：</p>
+<pre><code>int a = 5, b = 4;
+printf(&quot;%d\n&quot;, a + b);  // 普通写法
+
+int *p = &amp;a, *q = &amp;b;
+printf(&quot;%d\n&quot;, *p + *q); // 使用指针，间接访问进行计算
+</code></pre>
                     
                     </section>
                 
@@ -591,10 +623,10 @@
         </div>
 
         
-        <a href="../function/README.html" class="navigation navigation-prev " aria-label="Previous page: Function"><i class="fa fa-angle-left"></i></a>
+        <a href="../pointer/README.html" class="navigation navigation-prev " aria-label="Previous page: Pointer"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../pointer/define-pointer.html" class="navigation navigation-next " aria-label="Next page: Define-Pointer"><i class="fa fa-angle-right"></i></a>
+        <a href="../pointer/pointer-and-function.html" class="navigation navigation-next " aria-label="Next page: Pointer-And-Function"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
