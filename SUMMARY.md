@@ -22,6 +22,9 @@
    * [Pointer-And-Function](pointer/pointer-and-function.md)
    * [Pointer-And-Array](pointer/pointer-and-array.md)
 * [Struct](struct/README.md)
+   * [Define-Struct](struct/define-struct.md)
+   * [Struct-And-Pointer](struct/struct-and-pointer.md)
+   * [Typedef](struct/typedef.md)
 * [Data-Structure](data-structure/README.md)
 * [Algorithm](algorithm/README.md)
 
