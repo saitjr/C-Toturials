@@ -30,4 +30,6 @@
    * [Typedef](struct/typedef.md)
 * [Data-Structure](data-structure/README.md)
 * [Algorithm](algorithm/README.md)
+   * [About-Number](algorithm/about-number.md)
+   * [About-Equation](algorithm/about-equation.md)
 

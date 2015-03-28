@@ -37,7 +37,7 @@
 
 写法：
 
-```
+```c
 enum Weekday {Monday, Tuesday};
 
 ```
@@ -48,7 +48,7 @@ enum Weekday {Monday, Tuesday};
 
 也可以使用`#define`宏定义来定义常量，表示为：
 
-```
+```c
 #deinfe NUMBER 5
 ```
 
@@ -60,7 +60,7 @@ enum Weekday {Monday, Tuesday};
 
 定义的格式为：
 
-```
+```c
 变量类型 变量名;
 int a;
 float b;
@@ -71,7 +71,7 @@ char d;
 
 多个相同类型的变量可定义为：
 
-```
+```c
 变量类型 变量1, 变量2, 变量3;
 int a, b, c;
 
@@ -92,7 +92,7 @@ int a, b, c;
 - 初始化：在定义变量时，直接给变量值。如：`int number = 5;`。
 - 赋值：变量定义以后，再给变量值。
 
-```
+```c
 int number;  // 定义变量名为number的整型变量
 number = 4;  // 将整型常量4赋值给number
 
@@ -105,7 +105,7 @@ number = otherNumber; // 将变量otherNumber赋值给number
 
 变量只在当前`{}`有效。如：
 
-```
+```c
 int main() {
 
     int number = 4; // 当离开main函数的{}以后，number就失效了，无法继续使用
@@ -119,7 +119,7 @@ int main() {
 
 变量是值可以改变的量，但有时，我们不希望变量的值改变，这是需要使用`const`关键字来修饰<font color=red>变量</font>。
 
-```
+```c
 int const a = 5;
 // 或
 // const int a = 5;

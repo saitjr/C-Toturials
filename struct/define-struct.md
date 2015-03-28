@@ -6,7 +6,7 @@
 
 由学生成绩管理系统的例子不难看出，学生的诸多属性（学号、姓名、年龄、成绩等）构成了学生这个结构体。结构体定义需要用到关键字`struct`，定义规则如下：
 
-```
+```c
 struct 结构体名称 {
 
     // 成员列表
@@ -15,7 +15,7 @@ struct 结构体名称 {
 ```
 如，一个学生结构体：
 
-```
+```c
 struct Student {
 
     char *studentId;    // 学生学号
@@ -32,7 +32,7 @@ struct Student {
 
 ###1. 定义结构体后，定义变量(最优)
 
-```
+```c
 struct Student {
 
     char *studentId;
@@ -47,7 +47,7 @@ struct Student stuA, stuB; // 定义结构体变量stuA、stuB
 
 ###2. 在定义结构体时，定义变量
 
-```
+```c
 struct Student {
 
     char *studentId;
@@ -60,7 +60,7 @@ struct Student {
 
 ###3. 直接定义变量
 
-```
+```c
 struct {
 
     char *studentId;
@@ -74,7 +74,7 @@ struct {
 
 结构体只能在定义的时候，能为<font color=red>整个</font>结构体变量进行赋值。
 
-```
+```c
 struct Student {
 
     char *studentId;
@@ -97,7 +97,7 @@ stuB = {"11310110", "Karen", 15, 100};
 在实际操作中，不可能定义一个结构体变量就能整体初始化。这时，我们只能单个对结构体的成员进行访问，如：
 
 
-```
+```c
 struct Student {
 
     char *studentId;
