@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Define-Pointer | 写在开头</title>
+        <title>Queue | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../pointer/pointer-and-function.html" />
+    <link rel="next" href="../data-structure/linked_list.html" />
     
     
-    <link rel="prev" href="../pointer/README.html" />
+    <link rel="prev" href="../data-structure/stack.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.1" data-basepath=".." data-revision="1427728363911">
+    <div class="book"  data-level="8.2" data-basepath=".." data-revision="1427728363911">
     
 
 <div class="book-summary">
@@ -356,7 +356,7 @@
                 
     
         
-        <li class="chapter active" data-level="6.1" data-path="pointer/define-pointer.html">
+        <li class="chapter " data-level="6.1" data-path="pointer/define-pointer.html">
             
                 
                     <a href="../pointer/define-pointer.html">
@@ -560,7 +560,7 @@
         </li>
     
         
-        <li class="chapter " data-level="8.2" data-path="data-structure/queue.html">
+        <li class="chapter active" data-level="8.2" data-path="data-structure/queue.html">
             
                 
                     <a href="../data-structure/queue.html">
@@ -755,86 +755,9 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_21">
+                    <section class="normal" id="section-gitbook_16">
                     
-                        <h1 id="">指针的定义与使用</h1>
-<h2 id="">指针的定义</h2>
-<p>在程序当中，我们使用<code>*</code>表示指向。指针变量的定义为：</p>
-<p>指向单元的数据类型 *指针变量名;</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> *intPointer;      <span class="hljs-comment">// 指向int变量的指针intPointer</span>
-<span class="hljs-keyword">float</span> *floatPointer;  <span class="hljs-comment">// 指向float变量的指针floatPointer</span>
-<span class="hljs-keyword">char</span> *charPointer;    <span class="hljs-comment">// 指向char变量的指针charPointer</span>
-</code></pre>
-<p>虽然，指针可以指向不同类型的变量，如以上的<code>intPointer</code>、<code>floatPointer</code>、<code>charPointer</code>，但他们所占的内存空间与指向变量的类型所占空间无关。意思是，<code>intPointer</code>、<code>floatPointer</code>、<code>charPointer</code>所占的内存都是8个字节（64位下）。</p>
-<p><strong>既然无论什么类型的指针都是占8个字节，那为什么还要分类型呢？</strong></p>
-<p>简单的讲，是为了告诉编译器，应该读几个字节。可以看看这个例子：</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">char</span> b = <span class="hljs-number">2</span>;
-
-<span class="hljs-keyword">int</span> *p = &amp;b;
-
-<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, *p);
-</code></pre>
-<h2 id="">指针的初始化与赋值</h2>
-<p><font color=red>没有具体指向的指针不能使用</font>。刚定义的指针，还没有初值，这时系统会随便指向一块地址，如果这块地址正被其他程序所占用，那么操作这块地址，可能会造成系统混乱。所以，定义指针以后，最好有一个初始化的好习惯，避免<font color=red>野指针异常</font>。</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> *p = NULL; <span class="hljs-comment">// 定义指针变量以后，初始化指向为NULL(未指向任何一块地址)</span>
-</code></pre>
-<h3 id="">&amp;取地址符</h3>
-<p>如果需要指向某一个变量，那首先需要得到这个变量的地址。</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
-<span class="hljs-keyword">int</span> *p = &amp;a; <span class="hljs-comment">// 注意*p的类型要与a的类型一致</span>
-</code></pre>
-<h3 id="">指针的赋值</h3>
-<ul>
-<li>定义指针变量，并给初始值，这一步叫做<font color=red>初始化</font>。</li>
-<li>定义以后，在其他地方给值，这一步叫做<font color=red>赋值</font>。</li>
-</ul>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
-<span class="hljs-keyword">int</span> *p = NULL; <span class="hljs-comment">// 定义指针变量，并初始化为NULL</span>
-p = &amp;a;        <span class="hljs-comment">// 将a的地址赋值给，注意：这里的p没有*</span>
-</code></pre>
-<h2 id="">指针的使用</h2>
-<p>这里有一个比较容易混淆的知识点<code>*</code>。</p>
-<ul>
-<li>指针变量在定义时，需要使用<code>int *p;</code>；</li>
-<li>但当定义以后，使用<code>p</code>来进行指针变量的访问；</li>
-<li>定义以后，使用<code>*p</code>中的<code>*</code>则表示指针运算符，将对这块地址中存储的值，进行间接访问。</li>
-</ul>
-<p>举个例子：</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;            <span class="hljs-comment">// 定义变量a，并初始为10</span>
-<span class="hljs-keyword">int</span> *p = NULL;         <span class="hljs-comment">// 定义指针变量p，并初始为NULL</span>
-p = &amp;a;                <span class="hljs-comment">// 将a的地址赋值给p</span>
-<span class="hljs-built_in">printf</span>(<span class="hljs-string">"a = %d"</span>, *p);  <span class="hljs-comment">// *p将间接访问p指向地址的值，即10</span>
-</code></pre>
-<p>以下例子是<font color=red>错误</font>的：</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> *p = NULL;
-p = <span class="hljs-number">10</span>;         <span class="hljs-comment">// 未加*的指针变量p表示的是地址，不能给地址赋值为10</span>
-</code></pre>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> *p = NULL;
-*p = <span class="hljs-number">10</span>;        <span class="hljs-comment">// p未指向任何一块地址，不能进行赋值</span>
-</code></pre>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
-<span class="hljs-keyword">int</span> *p = a;     <span class="hljs-comment">// 在初始的时候，*p表示地址，不能直接将变量a的值给它，应修改为*p = &amp;a;</span>
-</code></pre>
-<h2 id="">通过指针，修改变量的值</h2>
-<p>先来看看以前的实现方式：</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
-a = <span class="hljs-number">11</span>;
-</code></pre>
-<p>通知指针，进行间接访问的方式：</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;
-<span class="hljs-keyword">int</span> *p = &amp;a;
-
-*p = <span class="hljs-number">11</span>;
-</code></pre>
-<h2 id="">指针的运算</h2>
-<p>下面的例子为实现一个加法运算：</p>
-<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>, b = <span class="hljs-number">4</span>;
-<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, a + b);  <span class="hljs-comment">// 普通写法</span>
-
-<span class="hljs-keyword">int</span> *p = &amp;a, *q = &amp;b;
-<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, *p + *q); <span class="hljs-comment">// 使用指针，间接访问进行计算</span>
-</code></pre>
+                        <h1 id="queue">Queue</h1>
 
                     
                     </section>
@@ -845,10 +768,10 @@ a = <span class="hljs-number">11</span>;
         </div>
 
         
-        <a href="../pointer/README.html" class="navigation navigation-prev " aria-label="Previous page: Pointer"><i class="fa fa-angle-left"></i></a>
+        <a href="../data-structure/stack.html" class="navigation navigation-prev " aria-label="Previous page: Stack"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../pointer/pointer-and-function.html" class="navigation navigation-next " aria-label="Next page: Pointer-And-Function"><i class="fa fa-angle-right"></i></a>
+        <a href="../data-structure/linked_list.html" class="navigation navigation-next " aria-label="Next page: Linke- List"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

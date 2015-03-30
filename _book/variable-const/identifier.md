@@ -8,7 +8,7 @@ C语言的字符集分为六类：标识符，关键字，运算符，分隔符�
 
 C语言一共有32个关键字（都是小写），不用特别记忆。在之后的编码中，天天都要和这些关键字打交道，并且他们能编辑器里面（如Sublime Text，Notepad++等）都会高亮进行显示（当然，IDE也会高亮显示）。
 
-```
+```c
 auto double int struct break else long switch
  
 case enum register typedef char extern return union

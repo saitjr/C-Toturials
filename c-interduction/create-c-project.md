@@ -4,14 +4,14 @@
 
 1.打开Xcode，选择Create a New Xcode Project
 
-<image src="./images/create-c-project-1.png" width="400px" />
+<img src="./images/create-c-project-1.png" width="400px" />
 
 2.选择OS下的Application -> Command Line Tools
 
-<image src="./images/create-c-project-2.png" width="400px" />
+<img src="./images/create-c-project-2.png" width="400px" />
 
 3.填写相关信息
 
-<image src="./images/create-c-project-3.png" width="400px" />
+<img src="./images/create-c-project-3.png" width="400px" />
 
 4.选择保存路径 -> 创建

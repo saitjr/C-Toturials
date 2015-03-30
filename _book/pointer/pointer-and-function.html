@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.2" data-basepath=".." data-revision="1427418007210">
+    <div class="book"  data-level="6.2" data-basepath=".." data-revision="1427728363911">
     
 
 <div class="book-summary">
@@ -540,6 +540,76 @@
                 
             
             
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="8.1" data-path="data-structure/stack.html">
+            
+                
+                    <a href="../data-structure/stack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                         Stack
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.2" data-path="data-structure/queue.html">
+            
+                
+                    <a href="../data-structure/queue.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                         Queue
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.3" data-path="data-structure/linked_list.html">
+            
+                
+                    <a href="../data-structure/linked_list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                         Linke- List
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.4" data-path="data-structure/tree.html">
+            
+                
+                    <a href="../data-structure/tree.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                         Tree
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         
@@ -555,6 +625,44 @@
                     </a>
                 
             
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="9.1" data-path="algorithm/about-number.html">
+            
+                
+                    <a href="../algorithm/about-number.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                         About-Number
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.2" data-path="algorithm/about-equation.html">
+            
+                
+                    <a href="../algorithm/about-equation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                         About-Equation
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -647,7 +755,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_17">
+                    <section class="normal" id="section-gitbook_23">
                     
                         <h1 id="">指针与函数</h1>
 <p>之前在介绍指针时，提到过一句话：</p>
@@ -657,33 +765,36 @@
 <p>这句话什么意思，我们这一讲就来理解一下。</p>
 <h2 id="">传值</h2>
 <p>之前学习函数的时候遇到一个问题，实参与形参都有自己独立的内存空间，所以不通过指针，进行交换两个数的操作，达不到想到的结果。下面是以前的例子：</p>
-<pre><code>void swap(int a, int b) {
+<pre><code class="lang-c"><span class="hljs-keyword">void</span> swap(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b) {
 
-    int temp = a;
+    <span class="hljs-keyword">int</span> temp = a;
     a = b;
     b = temp;
 }
-</code></pre><p>因为在这个步骤中，只有传值，并没有真正修改到实参的内容。对于这个问题，现在我们用指针来解决：</p>
-<pre><code>void swap(int *a, int *b) {
+</code></pre>
+<p>因为在这个步骤中，只有传值，并没有真正修改到实参的内容。对于这个问题，现在我们用指针来解决：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">void</span> swap(<span class="hljs-keyword">int</span> *a, <span class="hljs-keyword">int</span> *b) {
 
-    int temp = *a;
+    <span class="hljs-keyword">int</span> temp = *a;
     *a = *b;
     *b = temp;
 }
 
-int main() {
+<span class="hljs-keyword">int</span> main() {
 
-    int a = 4, b = 6;
+    <span class="hljs-keyword">int</span> a = <span class="hljs-number">4</span>, b = <span class="hljs-number">6</span>;
     swap(&amp;a, &amp;b);
 }
-</code></pre><p>思考：如果将上面的<code>swap</code>函数修改为一下形式，能达到交换效果吗？</p>
-<pre><code>void swap(int *a, int *b) {
+</code></pre>
+<p>思考：如果将上面的<code>swap</code>函数修改为一下形式，能达到交换效果吗？</p>
+<pre><code class="lang-c"><span class="hljs-keyword">void</span> swap(<span class="hljs-keyword">int</span> *a, <span class="hljs-keyword">int</span> *b) {
 
-    int *temp = a;
+    <span class="hljs-keyword">int</span> *temp = a;
     a = b;
     b = temp;
 }
-</code></pre><p>习题：输入a、b、c3个整数，按大小顺序输出。</p>
+</code></pre>
+<p>习题：输入a、b、c3个整数，按大小顺序输出。</p>
 
                     
                     </section>

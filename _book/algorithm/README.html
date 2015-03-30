@@ -18,8 +18,10 @@
     
     
     
+    <link rel="next" href="../algorithm/about-number.html" />
     
-    <link rel="prev" href="../data-structure/README.html" />
+    
+    <link rel="prev" href="../data-structure/tree.html" />
     
 
         
@@ -31,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="9" data-basepath=".." data-revision="1427418007210">
+    <div class="book"  data-level="9" data-basepath=".." data-revision="1427728363911">
     
 
 <div class="book-summary">
@@ -538,6 +540,76 @@
                 
             
             
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="8.1" data-path="data-structure/stack.html">
+            
+                
+                    <a href="../data-structure/stack.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                         Stack
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.2" data-path="data-structure/queue.html">
+            
+                
+                    <a href="../data-structure/queue.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                         Queue
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.3" data-path="data-structure/linked_list.html">
+            
+                
+                    <a href="../data-structure/linked_list.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                         Linke- List
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.4" data-path="data-structure/tree.html">
+            
+                
+                    <a href="../data-structure/tree.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                         Tree
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         
@@ -553,6 +625,44 @@
                     </a>
                 
             
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="9.1" data-path="algorithm/about-number.html">
+            
+                
+                    <a href="../algorithm/about-number.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                         About-Number
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.2" data-path="algorithm/about-equation.html">
+            
+                
+                    <a href="../algorithm/about-equation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                         About-Equation
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -647,7 +757,98 @@
                 
                     <section class="normal" id="section-gitbook_6">
                     
-                        <h1 id="algorithm">Algorithm</h1>
+                        <h1 id="">算法</h1>
+<p>说到算法，我自己都没自信能说我了解算法。没参加过ACM，连一些最经典的算法问题都没一一搞定，排几个序，做个八皇后也算了解算法的话，说出来会笑掉大牙的。所以，这一章严格（不严格也一样）的来说，不是算法，而是几道C语言趣味题罢了。</p>
+<h2 id="">什么是算法？</h2>
+<p>算法是在有限步骤内求解某一问题所使用的一组定义明确的规则。通俗点，也就是解决一个具体问题的步骤以及逻辑。</p>
+<h2 id="">特征</h2>
+<p><em>高德纳</em>在《计算机程序设计艺术》对算法的特征做了一下归纳：</p>
+<ol>
+<li>输入：一个算法必须有零个或以上输入量。</li>
+<li>输出：一个算法应有一个或以上输出量，输出量是算法计算的结果。</li>
+<li>明确性：算法的描述必须无歧义，以保证算法的实际执行结果是精确地符合要求或期望。</li>
+<li>有限性：一些定义规定算法必须在有限个步骤内完成任务。</li>
+<li>有效性：又称可行性。算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现。</li>
+</ol>
+<h2 id="">复杂度</h2>
+<p>关于算法，不得不说复杂度。在程序实现过程中，无非拿时间换空间，那空间换时间。</p>
+<h3 id="">时间复杂度</h3>
+<p>算法需要消耗掉的时间资源。</p>
+<p>时间复杂度一般用大写字母<code>O</code>表示，时间复杂度越大，程序效率越低。</p>
+<ol>
+<li>O(1)：一条指令，如：访问数组某个元素、判断一个数的奇偶；</li>
+<li>O(n)：需要执行n次，如：遍历一个数组；</li>
+<li>O(log n)：每次呈对数形式接近目标，如：二分查找；</li>
+<li>O(n^n)：执行次数呈幂函数是增长，如：多重循环、冒泡排序；</li>
+</ol>
+<h3 id="">空间复杂度</h3>
+<p>算法需要消耗掉的空间资源。表示方式与时间复杂度相同。</p>
+<p>空间复杂度计算的是程序在运行过程中，局部变量所占用的存储空间。它包括为参数表中形参变量分配的存储空间和为在函数体中定义的局部变量分配的存储空间两个部分。</p>
+<h2 id="">常见算法举例</h2>
+<h3 id="">迭代算法：</h3>
+<p>在现有基础上，不断更新，每一次更接近最终目标。</p>
+<p>如：N个数求最大值</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> numbers[<span class="hljs-number">10</span>] = {<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">10</span>, <span class="hljs-number">34</span>, <span class="hljs-number">0</span>, <span class="hljs-number">56</span>, <span class="hljs-number">9</span>};
+<span class="hljs-keyword">int</span> max = numbers[<span class="hljs-number">0</span>];
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-number">10</span>; i ++) {
+
+   <span class="hljs-keyword">if</span> (max &lt; numbers[i]) {
+
+       max = numbers[i];
+   }
+}
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"max = %d"</span>, max);
+</code></pre>
+<h3 id="">递推算法</h3>
+<p>变化有一定规律，能写出递推公式，通过这个公式延伸至所有。</p>
+<p>如：输出以下图形</p>
+<pre><code>*
+**
+***
+****
+</code></pre><pre><code class="lang-c"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i ++) {
+
+   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; i + <span class="hljs-number">1</span>; j ++) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"*"</span>);
+   }
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+}
+</code></pre>
+<h3 id="">穷举算法</h3>
+<p>列出所有的可能性，根据条件一一排除。</p>
+<p>如：求2000~2500年之间的闰年</p>
+<pre><code class="lang-c"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2000</span>; i &lt;= <span class="hljs-number">2500</span>; i ++) {
+
+   <span class="hljs-keyword">if</span> (i % <span class="hljs-number">400</span> == <span class="hljs-number">0</span> || (i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span> &amp;&amp; i % <span class="hljs-number">100</span> != <span class="hljs-number">0</span>)) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, i);
+   }
+}
+</code></pre>
+<h3 id="">递归算法</h3>
+<p>函数自己调用自己。</p>
+<p>如：求n!，或数据结构中<em>树的几种遍历方式</em></p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> test(<span class="hljs-keyword">int</span> number) {
+
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">if</span> (number &gt; <span class="hljs-number">0</span>) {
+
+        sum = number * test(number - <span class="hljs-number">1</span>);
+        number --;
+    }
+
+    <span class="hljs-keyword">return</span> sum;
+}
+</code></pre>
+<h2 id="">其他算法</h2>
+<p>对于简单的程序逻辑，以上几种算法基本够用。感兴趣的同学，可以尝试着了解下以下几种算法：</p>
+<ol>
+<li>分治算法：把一个复杂问题分割成几个小问题。例：快速排序、归并排序。</li>
+<li>贪心算法：每次都选择最优条件。例：霍夫曼编码（最优二叉树）。</li>
+</ol>
 
                     
                     </section>
@@ -658,8 +859,10 @@
         </div>
 
         
-        <a href="../data-structure/README.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Data-Structure"><i class="fa fa-angle-left"></i></a>
+        <a href="../data-structure/tree.html" class="navigation navigation-prev " aria-label="Previous page: Tree"><i class="fa fa-angle-left"></i></a>
         
+        
+        <a href="../algorithm/about-number.html" class="navigation navigation-next " aria-label="Next page: About-Number"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
