@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="8.1" data-basepath=".." data-revision="1427728363911">
+    <div class="book"  data-level="8.1" data-basepath=".." data-revision="1427785794453">
     
 
 <div class="book-summary">
@@ -773,18 +773,17 @@
 </ul>
 <h2 id="">实际应用</h2>
 <p>在iOS开发中，有一个控件叫做导航栏控制器(<code>UINavigationController</code>)，其中有两个方法push与pop就是对栈的操作。</p>
-<p>打开iPhone的设置界面我们可以看到此时的栈中有一个栈底元素Setting页面（同时也是栈顶）：</p>
+<p>打开iPhone的设置界面，此时的栈中有一个栈底元素Setting页面（同时也是栈顶）：</p>
 <p><img src="./images/stack-1.png" width="200px" />
+<img src="./images/stack-4.png" width="100px" style="border:0.5px gray solid; margin-left:20px" /></p>
+<p>当点击General页面，此时General页面会进行入栈操作，成为新的栈顶元素：</p>
+<p><img src="./images/stack-2.png" width="200px" />
 <img src="./images/stack-5.png" width="100px" style="border:0.5px gray solid; margin-left:20px" /></p>
-<p>当点击General页面时：</p>
-<p><img src="./images/stack-2.png" width="200px" /></p>
-<p>此时General页面会进行入栈操作，成为新的栈顶元素：</p>
-<p><img src="./images/stack-6.png" width="100px" style="border:0.5px gray solid" /></p>
-<p>继续点击Keyboards页面：</p>
-<p><img src="./images/stack-2.png" width="200px" /></p>
-<p>此时General页面会进行入栈操作，成为新的栈顶元素：</p>
-<p><img src="./images/stack-6.png" width="100px" style="border:0.5px gray solid" /></p>
-<p>界面跳转层级是这样的：</p>
+<p>继续点击Keyboards页面，此时的Keyboard页面也会进行入栈，成为栈顶元素：</p>
+<p><img src="./images/stack-2.png" width="200px" />
+<img src="./images/stack-6.png" width="100px" style="border:0.5px gray solid; margin-left:20px" /></p>
+<p>当点击返回按钮以后，首先推出Keyboard页面，再次返回，推出General页面，很明显，这是一个先进后出的模式，所以可以说明，这是一个栈的操作。在实际的方法调用中，我们将Setting-&gt;General称为界面从Setting push 到了General，返回时，成为将General pop推出了。</p>
+<h2 id="">栈的实现</h2>
 
                     
                     </section>
