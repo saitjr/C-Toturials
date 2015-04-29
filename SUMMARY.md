@@ -15,6 +15,7 @@
 * [Control-Flow](control-flow/README.md)
    * [Case-Structure](control-flow/case-structure.md)
    * [Loop-Structure](control-flow/loop-structure.md)
+   * [Case-and-Loop-Structure](control-flow/case-and-loop-structure.md)
 * [Array](array/README.md)
 * [Function](function/README.md)
 * [Pointer](pointer/README.md)

@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="7.3" data-basepath=".." data-revision="1427785794453">
+    <div class="book"  data-level="7.3" data-basepath=".." data-revision="1430323575902">
     
 
 <div class="book-summary">
@@ -295,6 +295,22 @@
                             <b>3.2.</b>
                         
                          Loop-Structure
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="control-flow/case-and-loop-structure.html">
+            
+                
+                    <a href="../control-flow/case-and-loop-structure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         Case-and-Loop-Structure
                     </a>
                 
             
@@ -755,7 +771,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_27">
+                    <section class="normal" id="section-gitbook_29">
                     
                         <h1 id="">结构体指针</h1>
 <h2 id="">指向结构体变量的指针</h2>
@@ -793,7 +809,8 @@ pStu = &amp;stu; <span class="hljs-comment">// 将结构体变量stu的首地址
 <h3 id="">访问</h3>
 <p>结构体指针访问成员的方式有两种：</p>
 <h4 id="1-">1. 先取<code>*</code>然后访问</h4>
-<pre><code class="lang-c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">"学生%s的年龄为%d\n"</span>, (*pStu).name, (*pStu).age);
+<pre><code class="lang-swift">
+printf(<span class="hljs-string">"学生%s的年龄为%d\n"</span>, (*pStu).name, (*pStu).age);
 <span class="hljs-comment">// 输出：学生Karen的年龄为15</span>
 </code></pre>
 <h4 id="2--">2. 使用<code>-&gt;</code>访问</h4>

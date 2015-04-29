@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Struct-And-Array | 写在开头</title>
+        <title>Operator | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../struct/struct-and-pointer.html" />
+    <link rel="next" href="../variable/expression.html" />
     
     
-    <link rel="prev" href="../struct/define-struct.html" />
+    <link rel="prev" href="../variable/convert-system.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="7.2" data-basepath=".." data-revision="1430323575902">
+    <div class="book"  data-level="2.6" data-basepath=".." data-revision="1430323575902">
     
 
 <div class="book-summary">
@@ -216,7 +216,7 @@
         </li>
     
         
-        <li class="chapter " data-level="2.6" data-path="variable/operator.html">
+        <li class="chapter active" data-level="2.6" data-path="variable/operator.html">
             
                 
                     <a href="../variable/operator.html">
@@ -458,7 +458,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="7.2" data-path="struct/struct-and-array.html">
+        <li class="chapter " data-level="7.2" data-path="struct/struct-and-array.html">
             
                 
                     <a href="../struct/struct-and-array.html">
@@ -771,55 +771,9 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_28">
+                    <section class="normal" id="section-gitbook_38">
                     
-                        <h1 id="">结构体数组</h1>
-<p>和之前学习数组的目的一样，在学生管理系统中，不可能一个一个学生去定义并初始化，所以引入了数组的概念。</p>
-<h2 id="">结构体数组的定义</h2>
-<p>与结构体变量定义一样，结构体数组的定义也有三种方式：</p>
-<h3 id="1-">1. 定义结构体后，定义数组(最优)</h3>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Student {
-
-    <span class="hljs-keyword">char</span> *studentId;
-    <span class="hljs-keyword">char</span> *name;
-    <span class="hljs-keyword">int</span> age;
-    <span class="hljs-keyword">double</span> score;
-};
-
-<span class="hljs-keyword">struct</span> Student stu[<span class="hljs-number">10</span>]; <span class="hljs-comment">// 定义一个长度为10的结构体数组</span>
-</code></pre>
-<h3 id="2-">2. 在定义结构体时，定义数组</h3>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Student {
-
-    <span class="hljs-keyword">char</span> *studentId;
-    <span class="hljs-keyword">char</span> *name;
-    <span class="hljs-keyword">int</span> age;
-    <span class="hljs-keyword">double</span> score;
-} stu[<span class="hljs-number">10</span>];  <span class="hljs-comment">// 定义一个长度为10的结构体数组</span>
-</code></pre>
-<h3 id="3-">3. 直接定义数组</h3>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> {
-
-    <span class="hljs-keyword">char</span> *studentId;
-    <span class="hljs-keyword">char</span> *name;
-    <span class="hljs-keyword">int</span> age;
-    <span class="hljs-keyword">double</span> score;
-} stu[<span class="hljs-number">10</span>];  <span class="hljs-comment">// 定义一个长度为10的结构体数组</span>
-</code></pre>
-<h2 id="">结构体数组的赋值与访问</h2>
-<pre><code class="lang-c">
-<span class="hljs-keyword">struct</span> Student students[<span class="hljs-number">10</span>];
-
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i ++) {
-
-    students[i].age = i;
-}
-
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i ++) {
-
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"第%d个学生的年龄 = %d\n"</span>, i + <span class="hljs-number">1</span>, students[i].age);
-}
-</code></pre>
+                        <h1 id="operator">Operator</h1>
 
                     
                     </section>
@@ -830,10 +784,10 @@
         </div>
 
         
-        <a href="../struct/define-struct.html" class="navigation navigation-prev " aria-label="Previous page: Define-Struct"><i class="fa fa-angle-left"></i></a>
+        <a href="../variable/convert-system.html" class="navigation navigation-prev " aria-label="Previous page: Convert-System"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../struct/struct-and-pointer.html" class="navigation navigation-next " aria-label="Next page: Struct-And-Pointer"><i class="fa fa-angle-right"></i></a>
+        <a href="../variable/expression.html" class="navigation navigation-next " aria-label="Next page: Expression"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

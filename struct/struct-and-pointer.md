@@ -51,7 +51,8 @@ pStu = &stu; // 将结构体变量stu的首地址给指针pStu
 
 ####1. 先取`*`然后访问
 
-```c
+```swift
+
 printf("学生%s的年龄为%d\n", (*pStu).name, (*pStu).age);
 // 输出：学生Karen的年龄为15
 

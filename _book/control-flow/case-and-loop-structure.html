@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Struct-And-Array | 写在开头</title>
+        <title>Case-and-Loop-Structure | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../struct/struct-and-pointer.html" />
+    <link rel="next" href="../array/README.html" />
     
     
-    <link rel="prev" href="../struct/define-struct.html" />
+    <link rel="prev" href="../control-flow/loop-structure.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="7.2" data-basepath=".." data-revision="1430323575902">
+    <div class="book"  data-level="3.3" data-basepath=".." data-revision="1430323575902">
     
 
 <div class="book-summary">
@@ -302,7 +302,7 @@
         </li>
     
         
-        <li class="chapter " data-level="3.3" data-path="control-flow/case-and-loop-structure.html">
+        <li class="chapter active" data-level="3.3" data-path="control-flow/case-and-loop-structure.html">
             
                 
                     <a href="../control-flow/case-and-loop-structure.html">
@@ -458,7 +458,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="7.2" data-path="struct/struct-and-array.html">
+        <li class="chapter " data-level="7.2" data-path="struct/struct-and-array.html">
             
                 
                     <a href="../struct/struct-and-array.html">
@@ -771,53 +771,195 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_28">
+                    <section class="normal" id="section-gitbook_4">
                     
-                        <h1 id="">结构体数组</h1>
-<p>和之前学习数组的目的一样，在学生管理系统中，不可能一个一个学生去定义并初始化，所以引入了数组的概念。</p>
-<h2 id="">结构体数组的定义</h2>
-<p>与结构体变量定义一样，结构体数组的定义也有三种方式：</p>
-<h3 id="1-">1. 定义结构体后，定义数组(最优)</h3>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Student {
+                        <h1 id="">选择与循环结构嵌套</h1>
+<p>本讲将通过几个经典例子来讲解选择与循环嵌套。</p>
+<h2 id="">选择与选择嵌套</h2>
+<h3 id="if--if">if 与 if嵌套</h3>
+<p>判断变量a是否在3~10之间。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">4</span>;
 
-    <span class="hljs-keyword">char</span> *studentId;
-    <span class="hljs-keyword">char</span> *name;
-    <span class="hljs-keyword">int</span> age;
-    <span class="hljs-keyword">double</span> score;
-};
+<span class="hljs-keyword">if</span> (a &gt; <span class="hljs-number">3</span>) {
 
-<span class="hljs-keyword">struct</span> Student stu[<span class="hljs-number">10</span>]; <span class="hljs-comment">// 定义一个长度为10的结构体数组</span>
-</code></pre>
-<h3 id="2-">2. 在定义结构体时，定义数组</h3>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Student {
+   <span class="hljs-keyword">if</span> (a &lt; <span class="hljs-number">10</span>) {
 
-    <span class="hljs-keyword">char</span> *studentId;
-    <span class="hljs-keyword">char</span> *name;
-    <span class="hljs-keyword">int</span> age;
-    <span class="hljs-keyword">double</span> score;
-} stu[<span class="hljs-number">10</span>];  <span class="hljs-comment">// 定义一个长度为10的结构体数组</span>
-</code></pre>
-<h3 id="3-">3. 直接定义数组</h3>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> {
-
-    <span class="hljs-keyword">char</span> *studentId;
-    <span class="hljs-keyword">char</span> *name;
-    <span class="hljs-keyword">int</span> age;
-    <span class="hljs-keyword">double</span> score;
-} stu[<span class="hljs-number">10</span>];  <span class="hljs-comment">// 定义一个长度为10的结构体数组</span>
-</code></pre>
-<h2 id="">结构体数组的赋值与访问</h2>
-<pre><code class="lang-c">
-<span class="hljs-keyword">struct</span> Student students[<span class="hljs-number">10</span>];
-
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i ++) {
-
-    students[i].age = i;
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"满足条件"</span>);
+   }
 }
+</code></pre>
+<p>可以看到，上面程序也可以使用逻辑运算符来简化为：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> a = <span class="hljs-number">4</span>;
 
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i ++) {
+<span class="hljs-keyword">if</span> (a &gt; <span class="hljs-number">3</span> &amp;&amp; a &lt; <span class="hljs-number">10</span>) {
 
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"第%d个学生的年龄 = %d\n"</span>, i + <span class="hljs-number">1</span>, students[i].age);
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"满足条件"</span>);
+}
+</code></pre>
+<p>第二种写法明显更清晰，也更方便处理。所以在开发过程中，要学会合理运用逻辑运算来合并一些没必要的嵌套。</p>
+<h3 id="if--switch">if 与 switch嵌套</h3>
+<p>用户输入是否是工作日（y/n）与星期几。如果是工作日，则星期一输出“中午吃牛肉面”，星期二输出“中午吃卤肉面”。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> isWorkingDay = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> dayOfWeek;
+
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"请输入是否是工作日(y/n), 与星期几:"</span>);
+<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%c %d"</span>, &amp;isWorkingDay, &amp;dayOfWeek);
+
+<span class="hljs-keyword">if</span> (isWorkingDay == <span class="hljs-string">'y'</span>) {
+
+   <span class="hljs-keyword">switch</span> (dayOfWeek) {
+       <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+           <span class="hljs-built_in">printf</span>(<span class="hljs-string">"中午吃牛肉面"</span>);
+           <span class="hljs-keyword">break</span>;
+       <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+           <span class="hljs-built_in">printf</span>(<span class="hljs-string">"中午吃卤肉面"</span>);
+           <span class="hljs-keyword">break</span>;
+
+       <span class="hljs-keyword">default</span>:
+           <span class="hljs-keyword">break</span>;
+   }
+}
+</code></pre>
+<h2 id="">选择与循环嵌套</h2>
+<p>对于选择与循环的嵌套结构，主要讲解for循环与if的嵌套。</p>
+<h3 id="if--for">if 与 for嵌套</h3>
+<p>输出2000~2100之间的闰年。</p>
+<pre><code class="lang-c"><span class="hljs-comment">// 从2000循环到2100，挨着判断是否是闰年</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2000</span>; i &lt;= <span class="hljs-number">2100</span>; i ++) {
+
+   <span class="hljs-comment">// 判断闰年：能被400整除或能被4且不能被100整除的年份</span>
+   <span class="hljs-keyword">if</span> ((i % <span class="hljs-number">400</span> == <span class="hljs-number">0</span>) || (i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span> &amp;&amp; i % <span class="hljs-number">100</span> != <span class="hljs-number">0</span>)) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, i);
+   }
+}
+</code></pre>
+<h2 id="">循环与循环嵌套</h2>
+<p>循环嵌套主要讲解for循环的嵌套。</p>
+<h3 id="">输出以下形状</h3>
+<pre><code>****
+****
+****
+</code></pre><pre><code class="lang-c"><span class="hljs-comment">// 控制行数</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i ++) {
+
+   <span class="hljs-comment">// 控制列数</span>
+   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span>; j ++) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"*"</span>);
+   }
+   <span class="hljs-comment">// 每一行结束后换行</span>
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+}
+</code></pre>
+<h3 id="">输出以下形状</h3>
+<pre><code class="lang-c">*
+**
+***
+****
+</code></pre>
+<p>首先分析*与行号的关系：</p>
+<table>
+<thead>
+<tr>
+<th>行号</th>
+<th>*个数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-c"><span class="hljs-comment">// 控制有多少行</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i ++) {
+
+   <span class="hljs-comment">// 控制每一行都多少*</span>
+   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;= i; j ++) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"*"</span>);
+   }
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+}
+</code></pre>
+<h3 id="">输出九九乘法表</h3>
+<pre><code class="lang-c"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">9</span>; i ++) {
+
+   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= i; j ++) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d * %d = %d\t"</span>, j, i, i * j);
+   }
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+}
+</code></pre>
+<h3 id="">输出一下形状</h3>
+<pre><code>   *
+  **
+ ***
+****
+</code></pre><p>首先分析*与行号的关系：</p>
+<table>
+<thead>
+<tr>
+<th>行号</th>
+<th>*个数</th>
+<th>空格数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>空格数 = 总行数 - 1 - 行号</p>
+<p>*数 = 行号 + 1</p>
+<pre><code class="lang-c"><span class="hljs-comment">// 控制行数</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i ++) {
+
+   <span class="hljs-comment">// 控制每行的空格数</span>
+   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span> - <span class="hljs-number">1</span> - i; j ++) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">" "</span>);
+   }
+
+   <span class="hljs-comment">// 控制每行的*数</span>
+   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;= i; j ++) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"*"</span>);
+   }
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
 }
 </code></pre>
 
@@ -830,10 +972,10 @@
         </div>
 
         
-        <a href="../struct/define-struct.html" class="navigation navigation-prev " aria-label="Previous page: Define-Struct"><i class="fa fa-angle-left"></i></a>
+        <a href="../control-flow/loop-structure.html" class="navigation navigation-prev " aria-label="Previous page: Loop-Structure"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../struct/struct-and-pointer.html" class="navigation navigation-next " aria-label="Next page: Struct-And-Pointer"><i class="fa fa-angle-right"></i></a>
+        <a href="../array/README.html" class="navigation navigation-next " aria-label="Next page: Array"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
