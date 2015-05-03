@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Case-Structure | 写在开头</title>
+        <title>Char-Array | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../control-flow/loop-structure.html" />
+    <link rel="next" href="../function/README.html" />
     
     
-    <link rel="prev" href="../control-flow/README.html" />
+    <link rel="prev" href="../array/two-dimensional-array.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3.1" data-basepath=".." data-revision="1430673289247">
+    <div class="book"  data-level="4.3" data-basepath=".." data-revision="1430673289247">
     
 
 <div class="book-summary">
@@ -270,7 +270,7 @@
                 
     
         
-        <li class="chapter active" data-level="3.1" data-path="control-flow/case-structure.html">
+        <li class="chapter " data-level="3.1" data-path="control-flow/case-structure.html">
             
                 
                     <a href="../control-flow/case-structure.html">
@@ -372,7 +372,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.3" data-path="array/char-array.html">
+        <li class="chapter active" data-level="4.3" data-path="array/char-array.html">
             
                 
                     <a href="../array/char-array.html">
@@ -825,9 +825,80 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_11">
                     
-                        <h1 id="case-structure">Case-Structure</h1>
+                        <h1 id="">字符串</h1>
+<p>在C语言中没有专门的字符串变量，通常用一个字符数组来存放一个字符串（字符数组即元素为字符的数组）。<font color=red>并且将<code>\0</code>作为结束标志。</font></p>
+<h2 id="">字符串定义</h2>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>];
+</code></pre>
+<p>因为最后一位<code>string[9]</code>要留给<code>\0</code>，所以对于<code>string</code>来说，有效位应该是9位。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[] = {<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>};
+<span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[] = <span class="hljs-string">"abcd"</span>;
+</code></pre>
+<p>对于这种情况，系统会自动在末尾加上<code>\0</code>。</p>
+<h2 id="">输入输出</h2>
+<p>输入输出的方法有很多，其中也可以像普通一维数组一样访问，这里不再举例。</p>
+<p>其他访问方式如下：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>] = {};
+
+<span class="hljs-comment">// 注意：这里的string本身已经是地址了，所以不用再&amp;string</span>
+<span class="hljs-comment">// 弊端：scanf是以空格作为结束的，所以这里输入的字符串不能有空格</span>
+<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, <span class="hljs-built_in">string</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s"</span>, <span class="hljs-built_in">string</span>);
+
+<span class="hljs-comment">// 注意：这种方式在xcode下有警告</span>
+gets(<span class="hljs-built_in">string</span>);
+<span class="hljs-built_in">puts</span>(<span class="hljs-built_in">string</span>);
+</code></pre>
+<h2 id="">字符串相关库函数</h2>
+<p>比起普通的一维数组，字符串的处理要方便得多。原因还是要归功于众多的系统库函数。下面将介绍几种常用的系统库函数。</p>
+<p>使用之前，需要引入头：</p>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;string.h&gt;</span>
+</code></pre>
+<p>所有的字符串库函数均将<code>\0</code>作为结束标志，所以使用前，要确定最后一位是<code>\0</code>。</p>
+<h3 id="strlen"><code>strlen</code></h3>
+<p>功能：计算字符串长度</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>] = <span class="hljs-string">"abc"</span>;
+<span class="hljs-keyword">int</span> length = <span class="hljs-built_in">strlen</span>(<span class="hljs-built_in">string</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"length = %d"</span>, length); <span class="hljs-comment">// 输出3</span>
+</code></pre>
+<p>注意下面这种结束标志的位置：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>] = {<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'\0'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>};
+<span class="hljs-keyword">int</span> length = <span class="hljs-built_in">strlen</span>(<span class="hljs-built_in">string</span>);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"length = %d"</span>, length); <span class="hljs-comment">// 输出2，因为提前出现了\0</span>
+</code></pre>
+<h3 id="strcat">strcat</h3>
+<p>功能：把string2中的字符串连接到string1 中字符串的后面，并删去string1后的串标志“\0”。本函数返回值是string1的首地址。</p>
+<font color = red>注意：因为字符串会直接拼接给string1，所以要确保string1的长度够长，至少能装下拼接过来的string2。</font>
+
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> string1[<span class="hljs-number">10</span>] = <span class="hljs-string">"abc"</span>;
+<span class="hljs-keyword">char</span> string2[] = <span class="hljs-string">"def"</span>;
+
+<span class="hljs-built_in">strcat</span>(string1, string2);
+<span class="hljs-built_in">puts</span>(string1);
+</code></pre>
+<h3 id="strcpy">strcpy</h3>
+<p>功能：字符串拷贝，将string2拷贝给string1（把后一个拷贝给前一个）。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> string1[<span class="hljs-number">10</span>] = {};
+<span class="hljs-keyword">char</span> string2[] = <span class="hljs-string">"def"</span>;
+
+<span class="hljs-built_in">strcpy</span>(string1, string2);
+<span class="hljs-built_in">puts</span>(string1);
+</code></pre>
+<h3 id="strcmp">strcmp</h3>
+<p>功能：字符串比较。通过ASCII，比较两个字符串的大小。根据编译器不同，有的返回-1, 0, 1；有的返回相差多少（Clang返回相差多少）。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> string1[<span class="hljs-number">10</span>] = <span class="hljs-string">"abc"</span>;
+<span class="hljs-keyword">char</span> string2[] = <span class="hljs-string">"ard"</span>;
+
+<span class="hljs-keyword">int</span> a = <span class="hljs-built_in">strcmp</span>(string1, string2);
+<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, a); <span class="hljs-comment">// 输出-16</span>
+</code></pre>
+<h2 id="">使用</h2>
+<p>练习：</p>
+<blockquote>
+<p>统计单词个数，以空格区分</p>
+</blockquote>
 
                     
                     </section>
@@ -838,10 +909,10 @@
         </div>
 
         
-        <a href="../control-flow/README.html" class="navigation navigation-prev " aria-label="Previous page: Control-Flow"><i class="fa fa-angle-left"></i></a>
+        <a href="../array/two-dimensional-array.html" class="navigation navigation-prev " aria-label="Previous page: Two-Dimensional-Array"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../control-flow/loop-structure.html" class="navigation navigation-next " aria-label="Next page: Loop-Structure"><i class="fa fa-angle-right"></i></a>
+        <a href="../function/README.html" class="navigation navigation-next " aria-label="Next page: Function"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

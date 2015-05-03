@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3.3" data-basepath=".." data-revision="1430373511663">
+    <div class="book"  data-level="3.3" data-basepath=".." data-revision="1430673289247">
     
 
 <div class="book-summary">
@@ -335,6 +335,60 @@
                     </a>
                 
             
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="array/one-dimensional-array.html">
+            
+                
+                    <a href="../array/one-dimensional-array.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         One-Dimensional-Array
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="array/two-dimensional-array.html">
+            
+                
+                    <a href="../array/two-dimensional-array.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         Two-Dimensional-Array
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="array/char-array.html">
+            
+                
+                    <a href="../array/char-array.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         Char-Array
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -771,7 +825,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_115">
+                    <section class="normal" id="section-gitbook_4">
                     
                         <h1 id="">选择与循环结构嵌套</h1>
 <p>本讲将通过几个经典例子来讲解选择与循环嵌套。</p>
@@ -906,7 +960,7 @@
    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
 }
 </code></pre>
-<h3 id="">输出一下形状</h3>
+<h3 id="">输出以下形状</h3>
 <pre><code>   *
   **
  ***
@@ -958,6 +1012,34 @@
    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt;= i; j ++) {
 
        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"*"</span>);
+   }
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
+}
+</code></pre>
+<h3 id="">输出以下形状</h3>
+<pre><code>      1
+    2   3
+  4   5   6
+7   8   9   0
+</code></pre><p>分析：这道题同样需要找到行号、空格、数字之间的关系。同时可以看到，数字是从1开始，到0结束的，可以通过取余运算来达到这个效果。</p>
+<pre><code class="lang-c"><span class="hljs-comment">// 定义变量number，用于输出连续数字</span>
+<span class="hljs-keyword">int</span> number = <span class="hljs-number">1</span>;
+
+<span class="hljs-comment">// 外层循环控制行数</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i ++) {
+
+   <span class="hljs-comment">// 控制每一行的空格数</span>
+   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span> - <span class="hljs-number">1</span> - i; j ++) {
+
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">" "</span>);
+   }
+   <span class="hljs-comment">// 控制每一行输出的数字</span>
+   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; i + <span class="hljs-number">1</span>; j ++) {
+
+       <span class="hljs-comment">// 因为最后一个数是0，而不是10，所以对10取余</span>
+       <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, number % <span class="hljs-number">10</span>);
+       <span class="hljs-comment">// 每输出一个数，就++</span>
+       number ++;
    }
    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
 }

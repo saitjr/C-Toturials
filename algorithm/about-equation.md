@@ -12,19 +12,19 @@
 #include <stdio.h>
 
 int main(int argc, const char * argv[]) {
-    
+
     int number = 7;
-    
+
     while (1) {
-        
+
         if (number % 2 == 1 && number % 3 == 2 && number % 5 == 4 && number % 6 == 5 && number % 7 == 0) {
-            
+
             printf("阶梯有%d阶", number);
             break;
         }
         number ++;
     }
-    
+
     return 0;
 }
 
@@ -38,24 +38,24 @@ int main(int argc, const char * argv[]) {
 #include <stdio.h>
 
 int main(int argc, const char * argv[]) {
-    
+
     for (int male = 0; male <= 20; male ++) {
-        
+
         for (int female = 0; female <= 33; female ++) {
-            
+
             int child = 100 - male - female;
-            
+
             if (child % 3 != 0) {
-                
+
                 continue;
             }
             if (child / 3 + male * 5 + female * 3 == 100) {
-                
+
                 printf("公鸡 = %-6d母鸡 = %-6d小鸡 = %-6d\n", male, female, child);
             }
         }
     }
-    
+
     return 0;
 }
 

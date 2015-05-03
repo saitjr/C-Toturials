@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Case-Structure | 写在开头</title>
+        <title>One-Dimensional-Array | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../control-flow/loop-structure.html" />
+    <link rel="next" href="../array/two-dimensional-array.html" />
     
     
-    <link rel="prev" href="../control-flow/README.html" />
+    <link rel="prev" href="../array/README.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3.1" data-basepath=".." data-revision="1430673289247">
+    <div class="book"  data-level="4.1" data-basepath=".." data-revision="1430673289247">
     
 
 <div class="book-summary">
@@ -270,7 +270,7 @@
                 
     
         
-        <li class="chapter active" data-level="3.1" data-path="control-flow/case-structure.html">
+        <li class="chapter " data-level="3.1" data-path="control-flow/case-structure.html">
             
                 
                     <a href="../control-flow/case-structure.html">
@@ -340,7 +340,7 @@
                 
     
         
-        <li class="chapter " data-level="4.1" data-path="array/one-dimensional-array.html">
+        <li class="chapter active" data-level="4.1" data-path="array/one-dimensional-array.html">
             
                 
                     <a href="../array/one-dimensional-array.html">
@@ -825,9 +825,233 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_12">
                     
-                        <h1 id="case-structure">Case-Structure</h1>
+                        <h1 id="">一维数组</h1>
+<p>本讲主要内容：</p>
+<ul>
+<li>概念引入</li>
+<li>数组的定义</li>
+<li>数组的初始化</li>
+<li>数组的访问</li>
+<li>循环访问数组</li>
+<li>数组排序<ul>
+<li>冒泡排序</li>
+<li>选择排序</li>
+<li>直接插入排序</li>
+</ul>
+</li>
+</ul>
+<h2 id="">概念引入</h2>
+<p>我们来看一下这个例子：</p>
+<blockquote>
+<p>存储全班同学的成绩，并算出总成绩与平均分。（全班50人）</p>
+</blockquote>
+<p>如果没有数组，那么需要初始化50个变量：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> score1 = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> score2 = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> score3 = <span class="hljs-number">0</span>;
+...
+...
+...
+
+<span class="hljs-keyword">int</span> sum = score1 + score2 + ... + score50;
+<span class="hljs-keyword">int</span> avg = sum / <span class="hljs-number">50</span>;
+</code></pre>
+<p>不难看出，我们不可能去初始化50个变量，那么有没有更好的解决办法呢？</p>
+<p>当然有，<strong>数组！</strong></p>
+<h2 id="">数组的定义</h2>
+<p>基本概念：</p>
+<ul>
+<li>在定义数组时，计算机会分配<font color=red>一块连续的空间</font></li>
+<li>定义方式为：<code>类型 数组名[数组长度];</code></li>
+<li>命名规则与变量命名规则相同（首字母小写、驼峰法）</li>
+<li>数组长度定义后，就不能改变</li>
+<li>Clang编译环境下，长度可以是变量。但是数组取的值，是定义数组时，变量的值。</li>
+</ul>
+<p>具体写法为：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> scores[<span class="hljs-number">50</span>]; <span class="hljs-comment">// 含义：定义一个长度为50的数组scores</span>
+</code></pre>
+<h2 id="">数组的初始化</h2>
+<p>在变量定义时给值，叫做初始化。</p>
+<h3 id="0">将全部值都初始化为0</h3>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> scores[<span class="hljs-number">50</span>] = {};
+
+<span class="hljs-comment">// 或</span>
+
+<span class="hljs-keyword">int</span> scores[<span class="hljs-number">50</span>] = {<span class="hljs-number">0</span>};
+</code></pre>
+<h3 id="">初始化部分或全部的值</h3>
+<p>初始化全部的数据。需要注意的是：</p>
+<ul>
+<li>现在的数组长度为3，所以最多只能给3个值</li>
+<li>数组类型为<code>int</code>，所以数组中只能放<code>int</code>类型的值</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> scores[<span class="hljs-number">3</span>] = {<span class="hljs-number">94</span>, <span class="hljs-number">91</span>, <span class="hljs-number">80</span>};
+</code></pre>
+<p>下面的例子中，数组长度为50。如果只初始化2个值，那么剩下的48个值，均为0。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> scores[<span class="hljs-number">50</span>] = {<span class="hljs-number">94</span>, <span class="hljs-number">90</span>};
+</code></pre>
+<h3 id="">已确定个数的初始化方式</h3>
+<p>当数组长度已经确定时，可以省略数组长度，直接初始化。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> score[] = {<span class="hljs-number">34</span>, <span class="hljs-number">78</span>, <span class="hljs-number">64</span>};
+</code></pre>
+<h2 id="">数组的读写</h2>
+<h3 id="">访问某个值</h3>
+<p>访问时需要注意以下几点：</p>
+<ul>
+<li>数组通过下标访问</li>
+<li>下标从0开始（意味着长度为40的数组，下标范围是0~39）</li>
+<li>注意不要越界（超出访问范围）</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> scores[<span class="hljs-number">50</span>] = {<span class="hljs-number">30</span>, <span class="hljs-number">58</span>, <span class="hljs-number">93</span>, <span class="hljs-number">80</span>, <span class="hljs-number">32</span>, <span class="hljs-number">45</span>};
+
+<span class="hljs-keyword">int</span> firstScore = scores[<span class="hljs-number">0</span>]; <span class="hljs-comment">// 访问第0个数</span>
+<span class="hljs-keyword">int</span> thirdScore = scores[<span class="hljs-number">2</span>]; <span class="hljs-comment">// 访问第3个数</span>
+</code></pre>
+<h3 id="">赋值</h3>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> scores[<span class="hljs-number">50</span>] = {<span class="hljs-number">0</span>}; <span class="hljs-comment">// 定义并初始化数组</span>
+
+scores[<span class="hljs-number">0</span>] = <span class="hljs-number">10</span>; <span class="hljs-comment">// 第0个值为10</span>
+scores[<span class="hljs-number">3</span>] = <span class="hljs-number">90</span>; <span class="hljs-comment">// 第3个值为90</span>
+</code></pre>
+<h2 id="">循环访问数组</h2>
+<p>有了数组，不仅方便了同类变量的定义，最重要的是，数组的下标是连续的，我们可以通过循环的方式，来访问数组。</p>
+<p>来看下面这个例子：</p>
+<blockquote>
+<p>定义一个长度为6的成绩数组，并初始化。求出总分与平均分。</p>
+</blockquote>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#<span class="hljs-keyword">include</span> &lt;stdio.h&gt;</span>
+
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * argv[]) {
+    <span class="hljs-comment">// insert code here...</span>
+
+    <span class="hljs-keyword">int</span> scores[<span class="hljs-number">6</span>] = {<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>};
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">6</span>; i ++) {
+
+        sum += scores[i];
+    }
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"总分 = %d, 平均分 = %lf"</span>, sum, sum / <span class="hljs-number">6.0</span>);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>练习：</p>
+<blockquote>
+<p>录入6个成绩，求出总分与平均分。</p>
+</blockquote>
+<h2 id="">数组的排序</h2>
+<p>排序一直是数组操作中，最经典的话题。各种算法，各种实现方式，最后还有各种面试，防不胜防的会问到。这一讲介绍到的数组排序方式都比较基础：</p>
+<ul>
+<li>冒泡排序</li>
+<li>选择排序</li>
+<li>直接插入排序</li>
+</ul>
+<h3 id="">冒泡排序</h3>
+<p>步骤：每次将最大的数冒出来。（每一轮都会将最大值排到最前或最后）</p>
+<p>思路：比较两个相邻两个数，如果<code>i &gt; i + 1</code>，则交换位置。每轮排序完成后，减少起点（或重点），避免重复比较有序部分。</p>
+<p><img src="images/bubble-sort.gif" alt=""></p>
+<pre><code class="lang-c"><span class="hljs-comment">// 冒泡排序</span>
+<span class="hljs-keyword">void</span> bubbleSort() {
+
+    <span class="hljs-keyword">int</span> <span class="hljs-built_in">array</span>[<span class="hljs-number">5</span>] = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>};
+    <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>; <span class="hljs-comment">// 记录执行次数</span>
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i ++) {
+
+        <span class="hljs-keyword">int</span> flag = <span class="hljs-number">0</span>; <span class="hljs-comment">// 标记是否提前完成排序</span>
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">5</span> - i - <span class="hljs-number">1</span>; j ++) {
+
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[j] &gt; <span class="hljs-built_in">array</span>[j + <span class="hljs-number">1</span>]) {
+
+                flag = <span class="hljs-number">1</span>; <span class="hljs-comment">// 如果该轮排序进行了值的交换，说明排序还未完成</span>
+
+                <span class="hljs-keyword">int</span> temp = <span class="hljs-built_in">array</span>[j];
+                <span class="hljs-built_in">array</span>[j] = <span class="hljs-built_in">array</span>[j + <span class="hljs-number">1</span>];
+                <span class="hljs-built_in">array</span>[j + <span class="hljs-number">1</span>] = temp;
+            }
+            sum ++; <span class="hljs-comment">// 排序字数++</span>
+        }
+        <span class="hljs-keyword">if</span> (flag == <span class="hljs-number">0</span>) {
+
+            <span class="hljs-keyword">break</span>;
+        }
+    }
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"排序共执行%d次\n"</span>, sum);
+
+    <span class="hljs-comment">// 遍历输出</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i ++) {
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, <span class="hljs-built_in">array</span>[i]);
+    }
+}
+</code></pre>
+<h3 id="">选择排序</h3>
+<p>步骤：遍历数组，每一轮找到最大的值，与最前（最后）交换。</p>
+<p>实现：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">void</span> selectionSort() {
+
+    <span class="hljs-keyword">int</span> <span class="hljs-built_in">array</span>[<span class="hljs-number">7</span>] = {<span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>};
+
+    <span class="hljs-comment">// 每一轮循环，找出第i大的数，放到第i位</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">7</span>; i ++) {
+
+        <span class="hljs-comment">// 默认最小值的下标为i</span>
+        <span class="hljs-keyword">int</span> minIndex = i;
+
+        <span class="hljs-comment">// 循环找最小值，j从i开始，避免重复查找</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; <span class="hljs-number">7</span>; j ++) {
+
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">array</span>[j] &lt; <span class="hljs-built_in">array</span>[minIndex]) {
+
+                minIndex = j;
+            }
+        }
+        <span class="hljs-comment">// 将找到的最小值，与第i位互换</span>
+        <span class="hljs-keyword">int</span> temp = <span class="hljs-built_in">array</span>[i];
+        <span class="hljs-built_in">array</span>[i] = <span class="hljs-built_in">array</span>[minIndex];
+        <span class="hljs-built_in">array</span>[minIndex] = temp;
+    }
+    <span class="hljs-comment">// 遍历输出</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">7</span>; i ++) {
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, <span class="hljs-built_in">array</span>[i]);
+    }
+}
+</code></pre>
+<h3 id="">插入排序</h3>
+<p>步骤：找到一个数的正确位置，插入数组。</p>
+<p>思路：</p>
+<p><img src="images/insertion-sort.gif" alt=""></p>
+<pre><code class="lang-c"><span class="hljs-keyword">void</span> insertionSort() {
+
+    <span class="hljs-keyword">int</span> <span class="hljs-built_in">array</span>[<span class="hljs-number">8</span>] = {<span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">8</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>};
+
+    <span class="hljs-comment">// 每一轮循环，可保证第i个数之前是有序的</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-number">8</span>; i ++) {
+
+        <span class="hljs-keyword">int</span> j = i;
+        <span class="hljs-keyword">int</span> temp = <span class="hljs-built_in">array</span>[i];
+
+        <span class="hljs-comment">// 第二层循环：移位操作</span>
+        <span class="hljs-keyword">for</span> (; j &gt; <span class="hljs-number">0</span> &amp;&amp; temp &lt; <span class="hljs-built_in">array</span>[j - <span class="hljs-number">1</span>]; j --) {
+
+            <span class="hljs-built_in">array</span>[j] = <span class="hljs-built_in">array</span>[j - <span class="hljs-number">1</span>];
+        }
+        <span class="hljs-built_in">array</span>[j] = temp;
+    }
+    <span class="hljs-comment">// 遍历输出</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">8</span>; i ++) {
+
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, <span class="hljs-built_in">array</span>[i]);
+    }
+}
+</code></pre>
 
                     
                     </section>
@@ -838,10 +1062,10 @@
         </div>
 
         
-        <a href="../control-flow/README.html" class="navigation navigation-prev " aria-label="Previous page: Control-Flow"><i class="fa fa-angle-left"></i></a>
+        <a href="../array/README.html" class="navigation navigation-prev " aria-label="Previous page: Array"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../control-flow/loop-structure.html" class="navigation navigation-next " aria-label="Next page: Loop-Structure"><i class="fa fa-angle-right"></i></a>
+        <a href="../array/two-dimensional-array.html" class="navigation navigation-next " aria-label="Next page: Two-Dimensional-Array"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

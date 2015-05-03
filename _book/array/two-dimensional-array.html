@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Case-Structure | 写在开头</title>
+        <title>Two-Dimensional-Array | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../control-flow/loop-structure.html" />
+    <link rel="next" href="../array/char-array.html" />
     
     
-    <link rel="prev" href="../control-flow/README.html" />
+    <link rel="prev" href="../array/one-dimensional-array.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3.1" data-basepath=".." data-revision="1430673289247">
+    <div class="book"  data-level="4.2" data-basepath=".." data-revision="1430673289247">
     
 
 <div class="book-summary">
@@ -270,7 +270,7 @@
                 
     
         
-        <li class="chapter active" data-level="3.1" data-path="control-flow/case-structure.html">
+        <li class="chapter " data-level="3.1" data-path="control-flow/case-structure.html">
             
                 
                     <a href="../control-flow/case-structure.html">
@@ -356,7 +356,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.2" data-path="array/two-dimensional-array.html">
+        <li class="chapter active" data-level="4.2" data-path="array/two-dimensional-array.html">
             
                 
                     <a href="../array/two-dimensional-array.html">
@@ -825,9 +825,75 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_13">
                     
-                        <h1 id="case-structure">Case-Structure</h1>
+                        <h1 id="">二维数组</h1>
+<p>二维数组可以看成多个一维数组，即用数组作为元素的数组。</p>
+<h2 id="">二维数组的定义</h2>
+<p><code>类型说明符 数组名[常量表达式1][常量表达式2];</code></p>
+<p>即：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> sz[<span class="hljs-number">3</span>][<span class="hljs-number">4</span>];
+</code></pre>
+<p>这里声明一个三行四列的数组，一共能表示12个整型。具体访问下标如下：</p>
+<p><img src="images/two-dimensional-array-1.png" alt=""></p>
+<h2 id="">二维数组的初始化</h2>
+<h3 id="">初始化全部元素</h3>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> sz[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = {{<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>}, {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}};
+
+<span class="hljs-comment">// 0 1 2</span>
+<span class="hljs-comment">// 3 4 5</span>
+</code></pre>
+<h3 id="">初始化部分元素</h3>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> sz[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = {{<span class="hljs-number">1</span>}, {<span class="hljs-number">2</span>}};
+
+<span class="hljs-comment">// 1 0 0</span>
+<span class="hljs-comment">// 2 0 0</span>
+
+<span class="hljs-comment">// 或</span>
+
+<span class="hljs-keyword">int</span> sz[<span class="hljs-number">2</span>][<span class="hljs-number">3</span>] = {<span class="hljs-number">0</span>};
+</code></pre>
+<h3 id="">缺省第一个长度</h3>
+<p>如果数组的长度已经确定，初始化时，可以缺省第一个长度。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> sz[][<span class="hljs-number">3</span>] = {{<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>}, {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}};
+
+<span class="hljs-comment">// 或</span>
+
+<span class="hljs-keyword">int</span> sz[][<span class="hljs-number">3</span>] = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>};
+</code></pre>
+<p>上面这个例子中可以看出，二维数组可以像一维数组一样进行初始化。<font color=red>因为在C语言中，二维数组是按行排列的。</font>即，先存放sz[0]行，再存放sz[1]行，每行中有三个元素也是依次存放。</p>
+<h2 id="">二维数组的应用</h2>
+<p>按照下表，求出各科总分与每个学生的总分。</p>
+<p><img src="images/two-dimensional-array-2.png" alt=""></p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * argv[]) {
+    <span class="hljs-comment">// insert code here...</span>
+
+    <span class="hljs-keyword">int</span> scores[<span class="hljs-number">3</span>][<span class="hljs-number">3</span>] = {{<span class="hljs-number">23</span>, <span class="hljs-number">45</span>, <span class="hljs-number">67</span>}, {<span class="hljs-number">12</span>, <span class="hljs-number">56</span>, <span class="hljs-number">89</span>}, {<span class="hljs-number">45</span>, <span class="hljs-number">89</span> ,<span class="hljs-number">19</span>}};
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i ++) {
+
+        <span class="hljs-keyword">int</span> sumOfStudent = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> sumOfCourse = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; <span class="hljs-comment">// j 需要在循环外进行输出，所以定义到外面</span>
+
+        <span class="hljs-keyword">for</span> (; j &lt; <span class="hljs-number">3</span>; j ++) {
+
+            <span class="hljs-comment">// 注意i和j分别表示什么</span>
+            sumOfStudent += scores[i][j];
+            sumOfCourse += scores[j][i];
+        }
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"第%d个学生的总分 = %d\n"</span>, i, sumOfStudent);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"第%d门课程的总分 = %d\n\n"</span>, i, sumOfCourse);
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>练习：</p>
+<blockquote>
+<p>有一个3 * 4的矩阵，求出最大的那个元素的值，并输出行号和列号</p>
+</blockquote>
 
                     
                     </section>
@@ -838,10 +904,10 @@
         </div>
 
         
-        <a href="../control-flow/README.html" class="navigation navigation-prev " aria-label="Previous page: Control-Flow"><i class="fa fa-angle-left"></i></a>
+        <a href="../array/one-dimensional-array.html" class="navigation navigation-prev " aria-label="Previous page: One-Dimensional-Array"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../control-flow/loop-structure.html" class="navigation navigation-next " aria-label="Next page: Loop-Structure"><i class="fa fa-angle-right"></i></a>
+        <a href="../array/char-array.html" class="navigation navigation-next " aria-label="Next page: Char-Array"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
