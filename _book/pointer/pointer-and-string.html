@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Struct-And-Struct | 写在开头</title>
+        <title>Pointer-and-String | 写在开头</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../struct/union.html" />
+    <link rel="next" href="../pointer/pointer-and-const.html" />
     
     
-    <link rel="prev" href="../struct/struct-and-pointer.html" />
+    <link rel="prev" href="../pointer/pointer-and-array.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="7.4" data-basepath=".." data-revision="1431312916666">
+    <div class="book"  data-level="6.4" data-basepath=".." data-revision="1431312916666">
     
 
 <div class="book-summary">
@@ -474,7 +474,7 @@
         </li>
     
         
-        <li class="chapter " data-level="6.4" data-path="pointer/pointer-and-string.html">
+        <li class="chapter active" data-level="6.4" data-path="pointer/pointer-and-string.html">
             
                 
                     <a href="../pointer/pointer-and-string.html">
@@ -576,7 +576,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="7.4" data-path="struct/struct-and-struct.html">
+        <li class="chapter " data-level="7.4" data-path="struct/struct-and-struct.html">
             
                 
                     <a href="../struct/struct-and-struct.html">
@@ -857,46 +857,9 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_75">
+                    <section class="normal" id="section-gitbook_71">
                     
-                        <h1 id="">结构体的嵌套</h1>
-<p>比如，现在有这样一个需求：</p>
-<blockquote>
-<p>定义一个人的结构体，有姓名、出生日期等成员，应该怎么定义？</p>
-</blockquote>
-<p>或许可以这样定义：</p>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Person {
-
-    <span class="hljs-keyword">char</span> *name;
-    <span class="hljs-keyword">int</span> year;
-    <span class="hljs-keyword">int</span> month;
-    <span class="hljs-keyword">int</span> day;
-};
-</code></pre>
-<p>这样也可以，但是我认为这个设计不好，年月日应该是日期的成员，怎么会是一个人的成员呢！所以，有了以下定义：</p>
-<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Date {
-
-    <span class="hljs-keyword">int</span> year;
-    <span class="hljs-keyword">int</span> month;
-    <span class="hljs-keyword">int</span> day;
-};
-
-<span class="hljs-keyword">struct</span> Person {
-
-    <span class="hljs-keyword">char</span> *name;
-    <span class="hljs-keyword">struct</span> Date birth;
-};
-</code></pre>
-<h2 id="">结构体嵌套的赋值与访问</h2>
-<pre><code class="lang-c"><span class="hljs-comment">// 定义结构体变量</span>
-
-<span class="hljs-keyword">struct</span> Person me;
-
-me.name = <span class="hljs-string">"Karen"</span>;
-me.birth.year = <span class="hljs-number">2000</span>;
-me.birth.month = <span class="hljs-number">1</span>;
-me.birth.day = <span class="hljs-number">1</span>;
-</code></pre>
+                        <h1 id="pointer-and-string">Pointer-and-String</h1>
 
                     
                     </section>
@@ -907,10 +870,10 @@ me.birth.day = <span class="hljs-number">1</span>;
         </div>
 
         
-        <a href="../struct/struct-and-pointer.html" class="navigation navigation-prev " aria-label="Previous page: Struct-And-Pointer"><i class="fa fa-angle-left"></i></a>
+        <a href="../pointer/pointer-and-array.html" class="navigation navigation-prev " aria-label="Previous page: Pointer-And-Array"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../struct/union.html" class="navigation navigation-next " aria-label="Next page: Union"><i class="fa fa-angle-right"></i></a>
+        <a href="../pointer/pointer-and-const.html" class="navigation navigation-next " aria-label="Next page: Pointer-and-Const"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

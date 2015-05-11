@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="4.3" data-basepath=".." data-revision="1430718332556">
+    <div class="book"  data-level="4.3" data-basepath=".." data-revision="1431312916666">
     
 
 <div class="book-summary">
@@ -473,6 +473,38 @@
             
         </li>
     
+        
+        <li class="chapter " data-level="6.4" data-path="pointer/pointer-and-string.html">
+            
+                
+                    <a href="../pointer/pointer-and-string.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                         Pointer-and-String
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.5" data-path="pointer/pointer-and-const.html">
+            
+                
+                    <a href="../pointer/pointer-and-const.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                         Pointer-and-Const
+                    </a>
+                
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -825,7 +857,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_11">
+                    <section class="normal" id="section-gitbook_53">
                     
                         <h1 id="">字符串</h1>
 <p>在C语言中没有专门的字符串变量，通常用一个字符数组来存放一个字符串（字符数组即元素为字符的数组）。<font color=red>并且将<code>\0</code>作为结束标志。</font></p>
@@ -833,10 +865,10 @@
 <pre><code class="lang-c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">10</span>];
 </code></pre>
 <p>因为最后一位<code>string[9]</code>要留给<code>\0</code>，所以对于<code>string</code>来说，有效位应该是9位。</p>
-<pre><code class="lang-c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[] = {<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>};
-<span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[] = <span class="hljs-string">"abcd"</span>;
+<pre><code class="lang-c"><span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[] = {<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>}; <span class="hljs-comment">// 此时空间长度为4，只是字符数组</span>
+<span class="hljs-keyword">char</span> <span class="hljs-built_in">string</span>[] = <span class="hljs-string">"abcd"</span>; <span class="hljs-comment">// 此时真正的空间长度是5，系统自动加了\0</span>
 </code></pre>
-<p>对于这种情况，系统会自动在末尾加上<code>\0</code>。</p>
+<p>从上面的例子可以看出，系统会为字符串自动添加<code>\0</code>，而字符数组不行。</p>
 <h2 id="">输入输出</h2>
 <p>输入输出的方法有很多，其中也可以像普通一维数组一样访问，这里不再举例。</p>
 <p>其他访问方式如下：</p>

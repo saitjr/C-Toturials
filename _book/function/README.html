@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="5" data-basepath=".." data-revision="1430718332556">
+    <div class="book"  data-level="5" data-basepath=".." data-revision="1431312916666">
     
 
 <div class="book-summary">
@@ -473,6 +473,38 @@
             
         </li>
     
+        
+        <li class="chapter " data-level="6.4" data-path="pointer/pointer-and-string.html">
+            
+                
+                    <a href="../pointer/pointer-and-string.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                         Pointer-and-String
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.5" data-path="pointer/pointer-and-const.html">
+            
+                
+                    <a href="../pointer/pointer-and-const.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                         Pointer-and-Const
+                    </a>
+                
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -825,9 +857,135 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_23">
+                    <section class="normal" id="section-gitbook_65">
                     
-                        <h1 id="function">Function</h1>
+                        <h1 id="">函数</h1>
+<p>本讲内容教基础，主要讲解：</p>
+<ul>
+<li>概念引入</li>
+<li>函数分类</li>
+<li>函数定义（返回值、函数名、参数）</li>
+<li>函数实现</li>
+<li>函数调用</li>
+<li>实参与形参</li>
+<li>嵌套</li>
+<li>递归</li>
+<li>局部变量与全局变量</li>
+</ul>
+<h2 id="">概念引入</h2>
+<p>前一讲我们讲到了数组，在输出数组时，每次都要重写一个for循环，然后开始遍历，很麻烦。今天，我们将使用函数，来对输出数组进行优化。</p>
+<blockquote>
+<p>函数：有具体功能的代码块</p>
+</blockquote>
+<p>函数有以下几个好处：</p>
+<ul>
+<li>将程序模块化（封装）</li>
+<li>实现代码复用</li>
+<li>使代码易于维护</li>
+</ul>
+<h2 id="">函数分类</h2>
+<p>根据角度不同，函数可以分为很多种类，一般分为：</p>
+<ul>
+<li>系统函数</li>
+<li>自定义函数</li>
+</ul>
+<h3 id="">系统函数</h3>
+<blockquote>
+<p>由C系统提供，用户无须定义，也不必在程序中作类型说明，只需在程序前包含有该函数原型的头文件即可在程序中直接调用。</p>
+</blockquote>
+<p>之前用到的属于<code>stdio.h</code>头文件的，<code>printf</code>、<code>scanf</code>函数。以及属于<code>string.h</code>的<code>strlen</code>，<code>strcpy</code>函数。</p>
+<h3 id="">自定义函数</h3>
+<p>按需要，自己写的函数。</p>
+<h2 id="">函数定义</h2>
+<p>函数定义：</p>
+<pre><code>返回值类型 函数名(参数列表) {
+
+    函数体
+}
+</code></pre><p>我们可以来看看经常用到的main函数：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * argv[]) {
+
+    <span class="hljs-comment">// 因为返回值为int，所以需要return一个整型。</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>表示：函数名为<code>main</code>，返回值为<code>int</code>，参数有两个<code>int argc, const char * argv[]</code>。</p>
+<p>无参数无返回值的定义：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">void</span> test() {
+
+    <span class="hljs-comment">// 因为没有返回值，所以可以不用写return xxxx;</span>
+    <span class="hljs-comment">// 如果一定要提前结束函数，也可以直接</span>
+    <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 不用接具体的值</span>
+}
+</code></pre>
+<p>注意：</p>
+<ul>
+<li><font color=red>不允许把一个函数定义在另一个函数内</font></li>
+<li>不同函数定义放置位置没有关系</li>
+</ul>
+<h2 id="">函数调用</h2>
+<p>如果函数的定义写在调用函数以后，那么需要进行声明。如果定义在调用函数以前，则不需要声明（告诉编译器有这个函数）。</p>
+<p>先来看下面这个完整的例子：</p>
+<pre><code class="lang-c"><span class="hljs-comment">// test2函数的声明，与函数定义一样，只是将{}改成了;</span>
+<span class="hljs-keyword">void</span> test2();
+
+<span class="hljs-comment">// 在main函数中调用了test1，因为test1定义在main函数以前，所以不用声明</span>
+<span class="hljs-keyword">void</span> test1() {
+
+
+}
+
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * argv[]) {
+
+    test1();
+    test2();
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-comment">// test2定义在调用它的main函数之后，所以如果在main函数要调用，必须将函数声明写在main函数之前</span>
+<span class="hljs-keyword">void</span> test2() {
+
+
+}
+</code></pre>
+<h3 id="">练习</h3>
+<blockquote>
+<p>写一个函数，传两个参数a, b，返回他们之中，较大的那一个。</p>
+</blockquote>
+<p>通过这道题，将讲解有参数的函数怎么定义、实现与调用。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> getMax(<span class="hljs-keyword">int</span> number1, <span class="hljs-keyword">int</span> number2) {
+
+    <span class="hljs-keyword">return</span> number1 &gt; number2 ? number1 : number2;
+}
+
+<span class="hljs-keyword">int</span> main(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * argv[]) {
+
+    <span class="hljs-keyword">int</span> max = getMax(<span class="hljs-number">4</span>, <span class="hljs-number">9</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"max = %d"</span>, max);
+}
+</code></pre>
+<h2 id="">形参与实参</h2>
+<h3 id="">练习</h3>
+<blockquote>
+<p>尝试交换两个数的位置</p>
+<p>选择排序</p>
+<p>直接插入排序</p>
+<p>输出一个数组</p>
+</blockquote>
+<h2 id="">嵌套调用</h2>
+<p>在函数中调用函数。</p>
+<h2 id="">递归</h2>
+<p>递归是算法中的一种，实现方式为函数自己调用自己。</p>
+<h3 id="">练习</h3>
+<blockquote>
+<p>求n!</p>
+</blockquote>
+<h2 id="">变量作用域</h2>
+<ul>
+<li>局部变量</li>
+<li>全局变量</li>
+</ul>
 
                     
                     </section>

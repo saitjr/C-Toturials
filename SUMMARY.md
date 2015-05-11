@@ -25,6 +25,8 @@
    * [Define-Pointer](pointer/define-pointer.md)
    * [Pointer-And-Function](pointer/pointer-and-function.md)
    * [Pointer-And-Array](pointer/pointer-and-array.md)
+   * [Pointer-and-String](pointer/pointer-and-string.md)
+   * [Pointer-and-Const](pointer/pointer-and-const.md)
 * [Struct](struct/README.md)
    * [Define-Struct](struct/define-struct.md)
    * [Struct-And-Array](struct/struct-and-array.md)
@@ -40,4 +42,5 @@
 * [Algorithm](algorithm/README.md)
    * [About-Number](algorithm/about-number.md)
    * [About-Equation](algorithm/about-equation.md)
+* [SUMMARY](summary/README.md)
 
