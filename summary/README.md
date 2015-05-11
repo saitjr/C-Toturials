@@ -60,6 +60,7 @@
 
 ## 其他
 
-- typedef
-- static
-- enum
+- `typedef`
+- `static`
+- `enum`
+- `#define`
