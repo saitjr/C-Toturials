@@ -12,10 +12,10 @@
 
 // main函数，程序入口
 int main(int argc, const char * argv[]) {
-    
+
     // 输出语句
     printf("Hello, World!\n");
-    
+
     // 返回值
     return 0;
 }
@@ -52,7 +52,7 @@ main函数，程序入口。
 int main() {
 
     // 函数体
-    
+
     return 0;
 }
 
@@ -62,7 +62,7 @@ int main() {
 ```c
 void main() {
 
-    
+
 }
 
 ```
@@ -70,7 +70,7 @@ void main() {
 ```c
 main() {
 
-    
+
 }
 
 ```
@@ -141,7 +141,7 @@ double ourVar = 1.0;   // 用于存放xxxx
  *  @return 返回值含义....
  */
 int test(int a) {
-    
+
     return 0;
 }
 
