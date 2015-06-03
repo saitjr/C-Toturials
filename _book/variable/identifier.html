@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.1" data-basepath=".." data-revision="1431312916666">
+    <div class="book"  data-level="2.1" data-basepath=".." data-revision="1433262467704">
     
 
 <div class="book-summary">
@@ -168,45 +168,13 @@
         </li>
     
         
-        <li class="chapter " data-level="2.3" data-path="variable/variable.html">
-            
-                
-                    <a href="../variable/variable.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.3.</b>
-                        
-                         Variable
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.4" data-path="variable/const.html">
-            
-                
-                    <a href="../variable/const.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.4.</b>
-                        
-                         Const
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.5" data-path="variable/convert-system.html">
+        <li class="chapter " data-level="2.3" data-path="variable/convert-system.html">
             
                 
                     <a href="../variable/convert-system.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.5.</b>
+                            <b>2.3.</b>
                         
                          Convert-System
                     </a>
@@ -216,13 +184,13 @@
         </li>
     
         
-        <li class="chapter " data-level="2.6" data-path="variable/operator.html">
+        <li class="chapter " data-level="2.4" data-path="variable/operator.html">
             
                 
                     <a href="../variable/operator.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.6.</b>
+                            <b>2.4.</b>
                         
                          Operator
                     </a>
@@ -232,13 +200,13 @@
         </li>
     
         
-        <li class="chapter " data-level="2.7" data-path="variable/expression.html">
+        <li class="chapter " data-level="2.5" data-path="variable/expression.html">
             
                 
                     <a href="../variable/expression.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.7.</b>
+                            <b>2.5.</b>
                         
                          Expression
                     </a>
@@ -768,6 +736,22 @@
             
         </li>
     
+        
+        <li class="chapter " data-level="10" data-path="summary/README.html">
+            
+                
+                    <a href="../summary/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         SUMMARY
+                    </a>
+                
+            
+            
+        </li>
+    
 
 
         
@@ -857,9 +841,31 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_83">
+                    <section class="normal" id="section-gitbook_686">
                     
-                        <h1 id="identifier">Identifier</h1>
+                        <h1 id="">字符集</h1>
+<p>C语言的字符集分为六类：标识符，关键字，运算符，分隔符，常量，注释符。本讲讲关键字与标识符，其余几个平时用的过程中就能理解。</p>
+<h2 id="">关键字</h2>
+<p>在C语言中，系统已经占用了一些字符，这些字符有特殊含义，我们不能进行重复命名，这就是关键词。</p>
+<p>C语言一共有32个关键字（都是小写），不用特别记忆。在之后的编码中，天天都要和这些关键字打交道，并且他们能编辑器里面（如Sublime Text，Notepad++等）都会高亮进行显示（当然，IDE也会高亮显示）。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">auto</span> <span class="hljs-keyword">double</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">struct</span> <span class="hljs-keyword">break</span> <span class="hljs-keyword">else</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">switch</span>
+
+<span class="hljs-keyword">case</span> <span class="hljs-keyword">enum</span> <span class="hljs-keyword">register</span> <span class="hljs-keyword">typedef</span> <span class="hljs-keyword">char</span> <span class="hljs-keyword">extern</span> <span class="hljs-keyword">return</span> <span class="hljs-keyword">union</span>
+
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">float</span> <span class="hljs-keyword">short</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">continue</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">signed</span> <span class="hljs-keyword">void</span>
+
+<span class="hljs-keyword">default</span> <span class="hljs-keyword">goto</span> <span class="hljs-keyword">sizeof</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">do</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">while</span> <span class="hljs-keyword">static</span>
+</code></pre>
+<h2 id="">标识符</h2>
+<p>在程序中使用的变量名、函数名、标号等统称为标识符。除库函数的函数名由系统定义外,其余都由用户自定义。</p>
+<p>标识符由数字<code>0~9</code>、字母<code>a~z A~Z</code>、下划线组成<code>_</code>。</p>
+<p>命名规则：</p>
+<ol>
+<li><font color=red>不能以数字开头</font>，错误示例：<code>0abc</code>；</li>
+<li><font color=red>不能与关键字重复</font>，错误示例：<code>int</code>；</li>
+<li><font color=red>区分大小写</font>，<code>abc</code>与<code>ABC</code>不同；</li>
+<li><font color=red>不能出现除数字、字母、下划线以外的字符</font>，错误示例：<code>a!bc</code>。</li>
+</ol>
 
                     
                     </section>

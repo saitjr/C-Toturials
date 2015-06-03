@@ -18,7 +18,7 @@
     
     
     
-    <link rel="next" href="../variable/variable.html" />
+    <link rel="next" href="../variable/convert-system.html" />
     
     
     <link rel="prev" href="../variable/identifier.html" />
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.2" data-basepath=".." data-revision="1431312916666">
+    <div class="book"  data-level="2.2" data-basepath=".." data-revision="1433262467704">
     
 
 <div class="book-summary">
@@ -168,45 +168,13 @@
         </li>
     
         
-        <li class="chapter " data-level="2.3" data-path="variable/variable.html">
-            
-                
-                    <a href="../variable/variable.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.3.</b>
-                        
-                         Variable
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.4" data-path="variable/const.html">
-            
-                
-                    <a href="../variable/const.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.4.</b>
-                        
-                         Const
-                    </a>
-                
-            
-            
-        </li>
-    
-        
-        <li class="chapter " data-level="2.5" data-path="variable/convert-system.html">
+        <li class="chapter " data-level="2.3" data-path="variable/convert-system.html">
             
                 
                     <a href="../variable/convert-system.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.5.</b>
+                            <b>2.3.</b>
                         
                          Convert-System
                     </a>
@@ -216,13 +184,13 @@
         </li>
     
         
-        <li class="chapter " data-level="2.6" data-path="variable/operator.html">
+        <li class="chapter " data-level="2.4" data-path="variable/operator.html">
             
                 
                     <a href="../variable/operator.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.6.</b>
+                            <b>2.4.</b>
                         
                          Operator
                     </a>
@@ -232,13 +200,13 @@
         </li>
     
         
-        <li class="chapter " data-level="2.7" data-path="variable/expression.html">
+        <li class="chapter " data-level="2.5" data-path="variable/expression.html">
             
                 
                     <a href="../variable/expression.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.7.</b>
+                            <b>2.5.</b>
                         
                          Expression
                     </a>
@@ -768,6 +736,22 @@
             
         </li>
     
+        
+        <li class="chapter " data-level="10" data-path="summary/README.html">
+            
+                
+                    <a href="../summary/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         SUMMARY
+                    </a>
+                
+            
+            
+        </li>
+    
 
 
         
@@ -857,9 +841,94 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_81">
+                    <section class="normal" id="section-gitbook_684">
                     
-                        <h1 id="data-types">Data-Types</h1>
+                        <h1 id="">数据类型与常量变量</h1>
+<p>之前介绍，C语言有丰富的数据类型，主要有四大类：</p>
+<ol>
+<li>基本类型：<code>int</code>整型、<code>float</code> <code>double</code>浮点型、<code>char</code>字符型、<code>enmu</code>枚举型；</li>
+<li>构造类型：数组类型、<code>struct</code>结构体、<code>union</code>共用体；</li>
+<li>指针类型；</li>
+<li>空类型：<code>void</code>。</li>
+</ol>
+<p>本讲主要讲解基本数据类型。</p>
+<h2 id="">常量</h2>
+<p>在程序执行过程中，值不能进行修改的量称为常量。</p>
+<h3 id="">整型常量</h3>
+<p>整型即整数，用关键字<code>int</code>表示。如<code>1</code>、<code>2</code>、<code>3</code>，为常量。</p>
+<h3 id="">浮点型常量</h3>
+<p>浮点型即小数，在程序中因为精确位数不同，有单精度与双精度之分。</p>
+<ul>
+<li><p>单精度用关键字<code>float</code>表示，精确到6~7位。如<code>2.5f</code>、<code>3.8f</code>，为常量。</p>
+</li>
+<li><p>双精度用关键字<code>double</code>表示，精确到15~16位。如<code>7.9</code>、<code>124.9</code>，为常量。</p>
+</li>
+</ul>
+<h3 id="">字符型常量</h3>
+<p>字符型包括0~9数字，与字母符号，用关键字<code>char</code>表示。</p>
+<p>值得注意的是，字符的表示需要用<code>&#39;&#39;</code>单引号引起来，方式为：<code>&#39;a&#39;</code>、<code>&#39;0&#39;</code>。中文以及一串字符，<font color=red>不能</font>用char表示，错误写法<code>&#39;我&#39;</code>、<code>&#39;abcde&#39;</code>。</p>
+<h3 id="">枚举</h3>
+<p>枚举即一一列举的意思。比如一周七天：星期一、星期二、星期三...</p>
+<p>写法：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">enum</span> Weekday {Monday, Tuesday};
+</code></pre>
+<p>枚举值是常量，不能在程序中在对其进行修改。</p>
+<h3 id="">宏定义</h3>
+<p>也可以使用<code>#define</code>宏定义来定义常量，表示为：</p>
+<pre><code class="lang-c"><span class="hljs-preprocessor">#deinfe NUMBER 5</span>
+</code></pre>
+<h2 id="">变量</h2>
+<p>在程序运行过程中，值可以进行修改的，称为变量。变量必须有一个名字，并占用一定存储空间。如：当前时间。</p>
+<h3 id="">变量的定义</h3>
+<p>定义的格式为：</p>
+<pre><code class="lang-c">变量类型 变量名;
+<span class="hljs-keyword">int</span> a;
+<span class="hljs-keyword">float</span> b;
+<span class="hljs-keyword">double</span> c;
+<span class="hljs-keyword">char</span> d;
+</code></pre>
+<p>多个相同类型的变量可定义为：</p>
+<pre><code class="lang-c">变量类型 变量<span class="hljs-number">1</span>, 变量<span class="hljs-number">2</span>, 变量<span class="hljs-number">3</span>;
+<span class="hljs-keyword">int</span> a, b, c;
+</code></pre>
+<h3 id="">变量的命名</h3>
+<p>变量命名首先需要遵循标识符的命名规则，除此之外，为了编码规范，还需要遵循以下几点：</p>
+<ol>
+<li>变量名要做到见名知意，如：<code>int number;</code>；</li>
+<li>首字母小写；</li>
+<li>多个单词使用<font color=red>驼峰法</font>（即，除第一个单词外，其余首字母大小）命名：<code>int myFirstName;</code>；</li>
+</ol>
+<font color=red>注：不能定义重名的变量</font>
+
+<h3 id="">变量的初始化与赋值</h3>
+<ul>
+<li>初始化：在定义变量时，直接给变量值。如：<code>int number = 5;</code>。</li>
+<li>赋值：变量定义以后，再给变量值。</li>
+</ul>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> number;  <span class="hljs-comment">// 定义变量名为number的整型变量</span>
+number = <span class="hljs-number">4</span>;  <span class="hljs-comment">// 将整型常量4赋值给number</span>
+
+<span class="hljs-keyword">int</span> otherNumber = <span class="hljs-number">10</span>; <span class="hljs-comment">// 定义一个整型常量otherNumber，并初始化为10</span>
+number = otherNumber; <span class="hljs-comment">// 将变量otherNumber赋值给number</span>
+</code></pre>
+<h3 id="">变量作用域</h3>
+<p>变量只在当前<code>{}</code>有效。如：</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> main() {
+
+    <span class="hljs-keyword">int</span> number = <span class="hljs-number">4</span>; <span class="hljs-comment">// 当离开main函数的{}以后，number就失效了，无法继续使用</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="const">Const关键字</h2>
+<p>变量是值可以改变的量，但有时，我们不希望变量的值改变，这是需要使用<code>const</code>关键字来修饰<font color=red>变量</font>。</p>
+<pre><code class="lang-c"><span class="hljs-keyword">int</span> <span class="hljs-keyword">const</span> a = <span class="hljs-number">5</span>;
+<span class="hljs-comment">// 或</span>
+<span class="hljs-comment">// const int a = 5;</span>
+
+a = <span class="hljs-number">10</span>; <span class="hljs-comment">// 这句话是错的，因为a的值已经不可变</span>
+</code></pre>
+<font color=red>以上这种const与变量类型交换位置的写法不是任何类型都使用。如指针类型意义就不同。</font>
 
                     
                     </section>
@@ -873,7 +942,7 @@
         <a href="../variable/identifier.html" class="navigation navigation-prev " aria-label="Previous page: Identifier"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../variable/variable.html" class="navigation navigation-next " aria-label="Next page: Variable"><i class="fa fa-angle-right"></i></a>
+        <a href="../variable/convert-system.html" class="navigation navigation-next " aria-label="Next page: Convert-System"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

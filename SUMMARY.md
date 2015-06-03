@@ -7,8 +7,6 @@
 * [Variable-Const](variable/README.md)
    * [Identifier](variable/identifier.md)
    * [Data-Types](variable/data-types.md)
-   * [Variable](variable/variable.md)
-   * [Const](variable/const.md)
    * [Convert-System](variable/convert-system.md)
    * [Operator](variable/operator.md)
    * [Expression](variable/expression.md)
